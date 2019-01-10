@@ -8,12 +8,11 @@ Created on Thu Jan 10 18:37:58 2019
 def add(first, second):
     return first + second
 
+def divide(first, second):
+    return first / second
+
+def multiply(first, second):
+    return first * second
 
 def subtract(first, second):
     return first - second
-
-print(add(2, 2))
-
-print(add(2, 3))
-
-print(subtract(2, 2))
