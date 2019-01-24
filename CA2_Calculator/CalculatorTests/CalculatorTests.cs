@@ -39,6 +39,38 @@ namespace CalculatorTests
         }
 
         [TestMethod]
+        public void Exponent_2Exp4Equals16()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Exponent(2, 4);
+            Assert.AreEqual(16, result);
+        }
+
+        [TestMethod]
+        public void Exponent_Negative1Exp6Equals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Exponent(-1, 6);
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void Exponent_ZeroExp20()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Exponent(0, 20);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void Exponent_Minus2Exp5EqualsMinus32()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Exponent(-2, 5);
+            Assert.AreEqual(-32, result);
+        }
+
+        [TestMethod]
         public void Multiply_Negative5Point2MultiplyBy2_EqualsNegative10Point4()
         {
             Calculator calc = new Calculator();
