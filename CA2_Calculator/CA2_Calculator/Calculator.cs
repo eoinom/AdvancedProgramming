@@ -30,6 +30,17 @@ namespace CA2_Calculator
                 return null;
         }
 
+        public Nullable<double> Exponent<T>(T numA, T numB)
+        {
+            bool isNumA = double.TryParse(numA.ToString(), out double dblNumA);
+            bool isNumB = double.TryParse(numB.ToString(), out double dblNumB);
+
+            if (isNumA && isNumB)
+                return Math.Pow(dblNumA, dblNumB);
+            else
+                return null;
+        }
+
         public Nullable<double> Multiply<T>(T numA, T numB)
         {
             bool isNumA = double.TryParse(numA.ToString(), out double dblNumA);
