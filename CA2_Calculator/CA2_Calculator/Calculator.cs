@@ -19,6 +19,16 @@ namespace CA2_Calculator
                 return null;
         }
 
+        public Nullable<double> Cube<T>(T num)
+        {
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
+
+            if (isNum)
+                return Math.Pow(dblNum, 3);
+            else
+                return null;
+        }
+
         public Nullable<double> Divide<T>(T numA, T numB)
         {
             bool isNumA = double.TryParse(numA.ToString(), out double dblNumA);
@@ -48,6 +58,16 @@ namespace CA2_Calculator
 
             if (isNumA && isNumB)
                 return dblNumA * dblNumB;
+            else
+                return null;
+        }
+
+        public Nullable<double> Square<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (isNum)
+                return Math.Pow(dblNum, 2);
             else
                 return null;
         }

@@ -23,6 +23,38 @@ namespace CalculatorTests
         }
 
         [TestMethod]
+        public void Cube_3CubedEquals27()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Cube(3);
+            Assert.AreEqual(27, result);
+        }
+
+        [TestMethod]
+        public void Cube_Negative1CubedEqualsMinus1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Cube(-1);
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
+        public void Cube_ZeroCubedEqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Cube(0);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void Cube_2Point5CubedEquals15Point625()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Cube(2.5);
+            Assert.AreEqual(15.625, result);
+        }
+
+        [TestMethod]
         public void Divide_25DividedBy2_Equals12Point5()
         {
             Calculator calc = new Calculator();
@@ -100,6 +132,38 @@ namespace CalculatorTests
             Calculator calc = new Calculator();
             var result = calc.Subtract(10, -10);
             Assert.AreEqual(20, result);
+        }
+
+        [TestMethod]
+        public void Square_3SquaredEquals9()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Square(3);
+            Assert.AreEqual(9, result);
+        }
+
+        [TestMethod]
+        public void Square_Negative1SquaredEquals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Square(-1);
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void Square_ZeroSquaredEqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Square(0);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void Square_2Point5SquaredEquals6Point25()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Square(2.5);
+            Assert.AreEqual(6.25, result);
         }
     }
 }
