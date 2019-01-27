@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using static System.Math;
 
 namespace CA2_Calculator
 {
@@ -25,6 +26,16 @@ namespace CA2_Calculator
 
             if (isNum)
                 return Math.Pow(dblNum, 3);
+            else
+                return null;
+        }
+
+        public Nullable<double> CubeRoot<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (isNum)
+                return Math.Round(Math.Pow(dblNum, 1.0/3), 8);
             else
                 return null;
         }
@@ -68,6 +79,16 @@ namespace CA2_Calculator
 
             if (isNum)
                 return Math.Pow(dblNum, 2);
+            else
+                return null;
+        }
+
+        public Nullable<double> SquareRoot<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (isNum)
+                return Math.Sqrt(dblNum);
             else
                 return null;
         }

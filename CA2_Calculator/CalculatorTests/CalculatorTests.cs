@@ -55,6 +55,38 @@ namespace CalculatorTests
         }
 
         [TestMethod]
+        public void CubeRoot_64CubeRootEquals4()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CubeRoot(64);
+            Assert.AreEqual(4, result);
+        }
+
+        [TestMethod]
+        public void CubeRoot_Negative8CubeRootEqualsNaN()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CubeRoot(-8);
+            Assert.AreEqual(double.NaN, result);
+        }
+
+        [TestMethod]
+        public void CubeRoot_9Point261CubeRootEquals2Point1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CubeRoot(9.261);
+            Assert.AreEqual(2.1, result);
+        }
+
+        [TestMethod]
+        public void CubeRoot_ZeroCubeRootEqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CubeRoot(0);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
         public void Divide_25DividedBy2_Equals12Point5()
         {
             Calculator calc = new Calculator();
@@ -151,6 +183,14 @@ namespace CalculatorTests
         }
 
         [TestMethod]
+        public void Square_2Point5SquaredEquals6Point25()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Square(2.5);
+            Assert.AreEqual(6.25, result);
+        }
+
+        [TestMethod]
         public void Square_ZeroSquaredEqualsZero()
         {
             Calculator calc = new Calculator();
@@ -159,11 +199,35 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void Square_2Point5SquaredEquals6Point25()
+        public void SquareRoot_64SquareRootEquals8()
         {
             Calculator calc = new Calculator();
-            var result = calc.Square(2.5);
-            Assert.AreEqual(6.25, result);
+            var result = calc.SquareRoot(64);
+            Assert.AreEqual(8, result);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Negative3SquareRootEqualsNaN()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SquareRoot(-3);
+            Assert.AreEqual(double.NaN, result);
+        }      
+
+        [TestMethod]
+        public void SquareRoot_2Point25SquareRootEquals1Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SquareRoot(2.25);
+            Assert.AreEqual(1.5, result);
+        }
+
+        [TestMethod]
+        public void SquareRoot_ZeroSquareRootEqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SquareRoot(0);
+            Assert.AreEqual(0, result);
         }
     }
 }
