@@ -59,7 +59,7 @@
             this.btnPi = new System.Windows.Forms.Button();
             this.lblLastInput = new System.Windows.Forms.Label();
             this.lblAngleType = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnReverseSign
@@ -74,6 +74,7 @@
             this.btnReverseSign.TabIndex = 0;
             this.btnReverseSign.Text = "±";
             this.btnReverseSign.UseVisualStyleBackColor = false;
+            this.btnReverseSign.Click += new System.EventHandler(this.btnReverseSign_Click);
             // 
             // btnNum0
             // 
@@ -87,6 +88,7 @@
             this.btnNum0.TabIndex = 1;
             this.btnNum0.Text = "0";
             this.btnNum0.UseVisualStyleBackColor = false;
+            this.btnNum0.Click += new System.EventHandler(this.number_click);
             // 
             // btnPoint
             // 
@@ -100,6 +102,7 @@
             this.btnPoint.TabIndex = 2;
             this.btnPoint.Text = ".";
             this.btnPoint.UseVisualStyleBackColor = false;
+            this.btnPoint.Click += new System.EventHandler(this.btnPoint_Click);
             // 
             // btnNum1
             // 
@@ -113,6 +116,7 @@
             this.btnNum1.TabIndex = 3;
             this.btnNum1.Text = "1";
             this.btnNum1.UseVisualStyleBackColor = false;
+            this.btnNum1.Click += new System.EventHandler(this.number_click);
             // 
             // btnNum2
             // 
@@ -126,6 +130,7 @@
             this.btnNum2.TabIndex = 4;
             this.btnNum2.Text = "2";
             this.btnNum2.UseVisualStyleBackColor = false;
+            this.btnNum2.Click += new System.EventHandler(this.number_click);
             // 
             // btnNum3
             // 
@@ -139,6 +144,7 @@
             this.btnNum3.TabIndex = 5;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = false;
+            this.btnNum3.Click += new System.EventHandler(this.number_click);
             // 
             // btnNum6
             // 
@@ -152,6 +158,7 @@
             this.btnNum6.TabIndex = 8;
             this.btnNum6.Text = "6";
             this.btnNum6.UseVisualStyleBackColor = false;
+            this.btnNum6.Click += new System.EventHandler(this.number_click);
             // 
             // btnNum5
             // 
@@ -165,6 +172,7 @@
             this.btnNum5.TabIndex = 7;
             this.btnNum5.Text = "5";
             this.btnNum5.UseVisualStyleBackColor = false;
+            this.btnNum5.Click += new System.EventHandler(this.number_click);
             // 
             // btnNum4
             // 
@@ -178,6 +186,7 @@
             this.btnNum4.TabIndex = 6;
             this.btnNum4.Text = "4";
             this.btnNum4.UseVisualStyleBackColor = false;
+            this.btnNum4.Click += new System.EventHandler(this.number_click);
             // 
             // btnNum9
             // 
@@ -191,6 +200,7 @@
             this.btnNum9.TabIndex = 11;
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = false;
+            this.btnNum9.Click += new System.EventHandler(this.number_click);
             // 
             // btnNum8
             // 
@@ -204,6 +214,7 @@
             this.btnNum8.TabIndex = 10;
             this.btnNum8.Text = "8";
             this.btnNum8.UseVisualStyleBackColor = false;
+            this.btnNum8.Click += new System.EventHandler(this.number_click);
             // 
             // btnNum7
             // 
@@ -217,6 +228,7 @@
             this.btnNum7.TabIndex = 9;
             this.btnNum7.Text = "7";
             this.btnNum7.UseVisualStyleBackColor = false;
+            this.btnNum7.Click += new System.EventHandler(this.number_click);
             // 
             // btnMultiply
             // 
@@ -399,6 +411,7 @@
             this.btnClear.TabIndex = 26;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnFactorial
             // 
@@ -433,7 +446,7 @@
             this.lblLastInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastInput.Location = new System.Drawing.Point(14, 33);
             this.lblLastInput.Name = "lblLastInput";
-            this.lblLastInput.Size = new System.Drawing.Size(318, 21);
+            this.lblLastInput.Size = new System.Drawing.Size(318, 28);
             this.lblLastInput.TabIndex = 29;
             this.lblLastInput.Text = "0";
             this.lblLastInput.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -445,28 +458,28 @@
             this.lblAngleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAngleType.Location = new System.Drawing.Point(12, 9);
             this.lblAngleType.Name = "lblAngleType";
-            this.lblAngleType.Size = new System.Drawing.Size(318, 21);
+            this.lblAngleType.Size = new System.Drawing.Size(318, 24);
             this.lblAngleType.TabIndex = 30;
             this.lblAngleType.Text = "Deg";
             // 
-            // label1
+            // lblResult
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(318, 31);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblResult.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.Location = new System.Drawing.Point(12, 61);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(318, 34);
+            this.lblResult.TabIndex = 31;
+            this.lblResult.Text = "0";
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 418);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(342, 413);
+            this.Controls.Add(this.lblResult);
             this.Controls.Add(this.lblAngleType);
             this.Controls.Add(this.lblLastInput);
             this.Controls.Add(this.btnEraseLeft);
@@ -539,6 +552,6 @@
         private System.Windows.Forms.Button btnPi;
         private System.Windows.Forms.Label lblLastInput;
         private System.Windows.Forms.Label lblAngleType;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblResult;
     }
 }
