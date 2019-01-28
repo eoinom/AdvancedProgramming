@@ -242,6 +242,7 @@
             this.btnMultiply.TabIndex = 15;
             this.btnMultiply.Text = "×";
             this.btnMultiply.UseVisualStyleBackColor = false;
+            this.btnMultiply.Click += new System.EventHandler(this.operator_TwoArg_click);
             // 
             // btnMinus
             // 
@@ -255,6 +256,7 @@
             this.btnMinus.TabIndex = 14;
             this.btnMinus.Text = "-";
             this.btnMinus.UseVisualStyleBackColor = false;
+            this.btnMinus.Click += new System.EventHandler(this.operator_TwoArg_click);
             // 
             // btnPlus
             // 
@@ -268,6 +270,7 @@
             this.btnPlus.TabIndex = 13;
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = false;
+            this.btnPlus.Click += new System.EventHandler(this.operator_TwoArg_click);
             // 
             // btnEquals
             // 
@@ -281,6 +284,7 @@
             this.btnEquals.TabIndex = 12;
             this.btnEquals.Text = "=";
             this.btnEquals.UseVisualStyleBackColor = false;
+            this.btnEquals.Click += new System.EventHandler(this.btnEquals_Click);
             // 
             // btnDivide
             // 
@@ -294,6 +298,7 @@
             this.btnDivide.TabIndex = 19;
             this.btnDivide.Text = "÷";
             this.btnDivide.UseVisualStyleBackColor = false;
+            this.btnDivide.Click += new System.EventHandler(this.operator_TwoArg_click);
             // 
             // btnTangent
             // 
@@ -448,7 +453,6 @@
             this.lblLastInput.Name = "lblLastInput";
             this.lblLastInput.Size = new System.Drawing.Size(318, 28);
             this.lblLastInput.TabIndex = 29;
-            this.lblLastInput.Text = "0";
             this.lblLastInput.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblAngleType
