@@ -57,9 +57,9 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnFactorial = new System.Windows.Forms.Button();
             this.btnPi = new System.Windows.Forms.Button();
-            this.txtInput = new System.Windows.Forms.TextBox();
             this.lblLastInput = new System.Windows.Forms.Label();
             this.lblAngleType = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnReverseSign
@@ -68,7 +68,7 @@
             this.btnReverseSign.FlatAppearance.BorderSize = 0;
             this.btnReverseSign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReverseSign.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReverseSign.Location = new System.Drawing.Point(12, 388);
+            this.btnReverseSign.Location = new System.Drawing.Point(12, 368);
             this.btnReverseSign.Name = "btnReverseSign";
             this.btnReverseSign.Size = new System.Drawing.Size(75, 39);
             this.btnReverseSign.TabIndex = 0;
@@ -81,7 +81,7 @@
             this.btnNum0.FlatAppearance.BorderSize = 0;
             this.btnNum0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum0.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum0.Location = new System.Drawing.Point(93, 388);
+            this.btnNum0.Location = new System.Drawing.Point(93, 368);
             this.btnNum0.Name = "btnNum0";
             this.btnNum0.Size = new System.Drawing.Size(75, 39);
             this.btnNum0.TabIndex = 1;
@@ -94,7 +94,7 @@
             this.btnPoint.FlatAppearance.BorderSize = 0;
             this.btnPoint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPoint.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPoint.Location = new System.Drawing.Point(174, 388);
+            this.btnPoint.Location = new System.Drawing.Point(174, 368);
             this.btnPoint.Name = "btnPoint";
             this.btnPoint.Size = new System.Drawing.Size(75, 39);
             this.btnPoint.TabIndex = 2;
@@ -107,7 +107,7 @@
             this.btnNum1.FlatAppearance.BorderSize = 0;
             this.btnNum1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum1.Location = new System.Drawing.Point(12, 343);
+            this.btnNum1.Location = new System.Drawing.Point(12, 323);
             this.btnNum1.Name = "btnNum1";
             this.btnNum1.Size = new System.Drawing.Size(75, 39);
             this.btnNum1.TabIndex = 3;
@@ -120,7 +120,7 @@
             this.btnNum2.FlatAppearance.BorderSize = 0;
             this.btnNum2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum2.Location = new System.Drawing.Point(93, 343);
+            this.btnNum2.Location = new System.Drawing.Point(93, 323);
             this.btnNum2.Name = "btnNum2";
             this.btnNum2.Size = new System.Drawing.Size(75, 39);
             this.btnNum2.TabIndex = 4;
@@ -133,7 +133,7 @@
             this.btnNum3.FlatAppearance.BorderSize = 0;
             this.btnNum3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum3.Location = new System.Drawing.Point(174, 343);
+            this.btnNum3.Location = new System.Drawing.Point(174, 323);
             this.btnNum3.Name = "btnNum3";
             this.btnNum3.Size = new System.Drawing.Size(75, 39);
             this.btnNum3.TabIndex = 5;
@@ -146,7 +146,7 @@
             this.btnNum6.FlatAppearance.BorderSize = 0;
             this.btnNum6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum6.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum6.Location = new System.Drawing.Point(174, 298);
+            this.btnNum6.Location = new System.Drawing.Point(174, 278);
             this.btnNum6.Name = "btnNum6";
             this.btnNum6.Size = new System.Drawing.Size(75, 39);
             this.btnNum6.TabIndex = 8;
@@ -159,7 +159,7 @@
             this.btnNum5.FlatAppearance.BorderSize = 0;
             this.btnNum5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum5.Location = new System.Drawing.Point(93, 298);
+            this.btnNum5.Location = new System.Drawing.Point(93, 278);
             this.btnNum5.Name = "btnNum5";
             this.btnNum5.Size = new System.Drawing.Size(75, 39);
             this.btnNum5.TabIndex = 7;
@@ -172,7 +172,7 @@
             this.btnNum4.FlatAppearance.BorderSize = 0;
             this.btnNum4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum4.Location = new System.Drawing.Point(12, 298);
+            this.btnNum4.Location = new System.Drawing.Point(12, 278);
             this.btnNum4.Name = "btnNum4";
             this.btnNum4.Size = new System.Drawing.Size(75, 39);
             this.btnNum4.TabIndex = 6;
@@ -185,7 +185,7 @@
             this.btnNum9.FlatAppearance.BorderSize = 0;
             this.btnNum9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum9.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum9.Location = new System.Drawing.Point(174, 253);
+            this.btnNum9.Location = new System.Drawing.Point(174, 233);
             this.btnNum9.Name = "btnNum9";
             this.btnNum9.Size = new System.Drawing.Size(75, 39);
             this.btnNum9.TabIndex = 11;
@@ -198,7 +198,7 @@
             this.btnNum8.FlatAppearance.BorderSize = 0;
             this.btnNum8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum8.Location = new System.Drawing.Point(93, 253);
+            this.btnNum8.Location = new System.Drawing.Point(93, 233);
             this.btnNum8.Name = "btnNum8";
             this.btnNum8.Size = new System.Drawing.Size(75, 39);
             this.btnNum8.TabIndex = 10;
@@ -211,7 +211,7 @@
             this.btnNum7.FlatAppearance.BorderSize = 0;
             this.btnNum7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum7.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNum7.Location = new System.Drawing.Point(12, 253);
+            this.btnNum7.Location = new System.Drawing.Point(12, 233);
             this.btnNum7.Name = "btnNum7";
             this.btnNum7.Size = new System.Drawing.Size(75, 39);
             this.btnNum7.TabIndex = 9;
@@ -224,7 +224,7 @@
             this.btnMultiply.FlatAppearance.BorderSize = 0;
             this.btnMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMultiply.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMultiply.Location = new System.Drawing.Point(255, 253);
+            this.btnMultiply.Location = new System.Drawing.Point(255, 233);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(75, 39);
             this.btnMultiply.TabIndex = 15;
@@ -237,7 +237,7 @@
             this.btnMinus.FlatAppearance.BorderSize = 0;
             this.btnMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinus.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinus.Location = new System.Drawing.Point(255, 298);
+            this.btnMinus.Location = new System.Drawing.Point(255, 278);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(75, 39);
             this.btnMinus.TabIndex = 14;
@@ -250,7 +250,7 @@
             this.btnPlus.FlatAppearance.BorderSize = 0;
             this.btnPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlus.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlus.Location = new System.Drawing.Point(255, 343);
+            this.btnPlus.Location = new System.Drawing.Point(255, 323);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(75, 39);
             this.btnPlus.TabIndex = 13;
@@ -263,7 +263,7 @@
             this.btnEquals.FlatAppearance.BorderSize = 0;
             this.btnEquals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEquals.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEquals.Location = new System.Drawing.Point(255, 388);
+            this.btnEquals.Location = new System.Drawing.Point(255, 368);
             this.btnEquals.Name = "btnEquals";
             this.btnEquals.Size = new System.Drawing.Size(75, 39);
             this.btnEquals.TabIndex = 12;
@@ -276,7 +276,7 @@
             this.btnDivide.FlatAppearance.BorderSize = 0;
             this.btnDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDivide.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDivide.Location = new System.Drawing.Point(255, 208);
+            this.btnDivide.Location = new System.Drawing.Point(255, 188);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(75, 39);
             this.btnDivide.TabIndex = 19;
@@ -289,7 +289,7 @@
             this.btnTangent.FlatAppearance.BorderSize = 0;
             this.btnTangent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTangent.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTangent.Location = new System.Drawing.Point(174, 208);
+            this.btnTangent.Location = new System.Drawing.Point(174, 188);
             this.btnTangent.Name = "btnTangent";
             this.btnTangent.Size = new System.Drawing.Size(75, 39);
             this.btnTangent.TabIndex = 18;
@@ -302,7 +302,7 @@
             this.btnCosine.FlatAppearance.BorderSize = 0;
             this.btnCosine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCosine.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCosine.Location = new System.Drawing.Point(93, 208);
+            this.btnCosine.Location = new System.Drawing.Point(93, 188);
             this.btnCosine.Name = "btnCosine";
             this.btnCosine.Size = new System.Drawing.Size(75, 39);
             this.btnCosine.TabIndex = 17;
@@ -315,7 +315,7 @@
             this.btnSine.FlatAppearance.BorderSize = 0;
             this.btnSine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSine.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSine.Location = new System.Drawing.Point(12, 208);
+            this.btnSine.Location = new System.Drawing.Point(12, 188);
             this.btnSine.Name = "btnSine";
             this.btnSine.Size = new System.Drawing.Size(75, 39);
             this.btnSine.TabIndex = 16;
@@ -328,7 +328,7 @@
             this.btnCubeRoot.FlatAppearance.BorderSize = 0;
             this.btnCubeRoot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCubeRoot.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCubeRoot.Location = new System.Drawing.Point(255, 163);
+            this.btnCubeRoot.Location = new System.Drawing.Point(255, 143);
             this.btnCubeRoot.Name = "btnCubeRoot";
             this.btnCubeRoot.Size = new System.Drawing.Size(75, 39);
             this.btnCubeRoot.TabIndex = 23;
@@ -341,7 +341,7 @@
             this.btnSquareRoot.FlatAppearance.BorderSize = 0;
             this.btnSquareRoot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSquareRoot.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSquareRoot.Location = new System.Drawing.Point(174, 163);
+            this.btnSquareRoot.Location = new System.Drawing.Point(174, 143);
             this.btnSquareRoot.Name = "btnSquareRoot";
             this.btnSquareRoot.Size = new System.Drawing.Size(75, 39);
             this.btnSquareRoot.TabIndex = 22;
@@ -354,7 +354,7 @@
             this.btnCube.FlatAppearance.BorderSize = 0;
             this.btnCube.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCube.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCube.Location = new System.Drawing.Point(93, 163);
+            this.btnCube.Location = new System.Drawing.Point(93, 143);
             this.btnCube.Name = "btnCube";
             this.btnCube.Size = new System.Drawing.Size(75, 39);
             this.btnCube.TabIndex = 21;
@@ -367,7 +367,7 @@
             this.btnSquare.FlatAppearance.BorderSize = 0;
             this.btnSquare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSquare.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSquare.Location = new System.Drawing.Point(12, 163);
+            this.btnSquare.Location = new System.Drawing.Point(12, 143);
             this.btnSquare.Name = "btnSquare";
             this.btnSquare.Size = new System.Drawing.Size(75, 39);
             this.btnSquare.TabIndex = 20;
@@ -380,7 +380,7 @@
             this.btnEraseLeft.FlatAppearance.BorderSize = 0;
             this.btnEraseLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEraseLeft.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEraseLeft.Location = new System.Drawing.Point(255, 118);
+            this.btnEraseLeft.Location = new System.Drawing.Point(255, 98);
             this.btnEraseLeft.Name = "btnEraseLeft";
             this.btnEraseLeft.Size = new System.Drawing.Size(75, 39);
             this.btnEraseLeft.TabIndex = 27;
@@ -393,7 +393,7 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(174, 118);
+            this.btnClear.Location = new System.Drawing.Point(174, 98);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 39);
             this.btnClear.TabIndex = 26;
@@ -406,7 +406,7 @@
             this.btnFactorial.FlatAppearance.BorderSize = 0;
             this.btnFactorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFactorial.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFactorial.Location = new System.Drawing.Point(93, 118);
+            this.btnFactorial.Location = new System.Drawing.Point(93, 98);
             this.btnFactorial.Name = "btnFactorial";
             this.btnFactorial.Size = new System.Drawing.Size(75, 39);
             this.btnFactorial.TabIndex = 25;
@@ -419,33 +419,23 @@
             this.btnPi.FlatAppearance.BorderSize = 0;
             this.btnPi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPi.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPi.Location = new System.Drawing.Point(12, 118);
+            this.btnPi.Location = new System.Drawing.Point(12, 98);
             this.btnPi.Name = "btnPi";
             this.btnPi.Size = new System.Drawing.Size(75, 39);
             this.btnPi.TabIndex = 24;
             this.btnPi.Text = "π";
             this.btnPi.UseVisualStyleBackColor = false;
             // 
-            // txtInput
-            // 
-            this.txtInput.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInput.Location = new System.Drawing.Point(12, 68);
-            this.txtInput.MaxLength = 27;
-            this.txtInput.Multiline = true;
-            this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(318, 40);
-            this.txtInput.TabIndex = 28;
-            this.txtInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // lblLastInput
             // 
             this.lblLastInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLastInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastInput.Location = new System.Drawing.Point(12, 38);
+            this.lblLastInput.Location = new System.Drawing.Point(14, 33);
             this.lblLastInput.Name = "lblLastInput";
-            this.lblLastInput.Size = new System.Drawing.Size(318, 20);
+            this.lblLastInput.Size = new System.Drawing.Size(318, 21);
             this.lblLastInput.TabIndex = 29;
+            this.lblLastInput.Text = "0";
             this.lblLastInput.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblAngleType
@@ -455,18 +445,30 @@
             this.lblAngleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAngleType.Location = new System.Drawing.Point(12, 9);
             this.lblAngleType.Name = "lblAngleType";
-            this.lblAngleType.Size = new System.Drawing.Size(318, 20);
+            this.lblAngleType.Size = new System.Drawing.Size(318, 21);
             this.lblAngleType.TabIndex = 30;
             this.lblAngleType.Text = "Deg";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(318, 31);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "0";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 440);
+            this.ClientSize = new System.Drawing.Size(342, 418);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAngleType);
             this.Controls.Add(this.lblLastInput);
-            this.Controls.Add(this.txtInput);
             this.Controls.Add(this.btnEraseLeft);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnFactorial);
@@ -502,7 +504,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CA2 Calculator";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -536,8 +537,8 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnFactorial;
         private System.Windows.Forms.Button btnPi;
-        private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.Label lblLastInput;
         private System.Windows.Forms.Label lblAngleType;
+        private System.Windows.Forms.Label label1;
     }
 }
