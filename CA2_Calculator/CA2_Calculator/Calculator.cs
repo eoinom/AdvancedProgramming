@@ -20,6 +20,16 @@ namespace CA2_Calculator
                 return null;
         }
 
+        public Nullable<double> CosFromDeg<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (isNum)
+                return Math.Cos(dblNum * (Math.PI / 180));
+            else
+                return null;
+        }
+
         public Nullable<double> Cube<T>(T num)
         {
             bool isNum = double.TryParse(num.ToString(), out double dblNum);
@@ -73,6 +83,16 @@ namespace CA2_Calculator
                 return null;
         }
 
+        public Nullable<double> SinFromDeg<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (isNum)
+                return Math.Sin(dblNum * (Math.PI / 180));
+            else
+                return null;
+        }
+
         public Nullable<double> Square<T>(T numA)
         {
             bool isNum = double.TryParse(numA.ToString(), out double dblNum);
@@ -103,5 +123,16 @@ namespace CA2_Calculator
             else
                 return null;
         }
+
+        public Nullable<double> TanFromDeg<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (!isNum || (dblNum % 90 == 0 && dblNum % 180 != 0) )
+                return null;
+            else
+                return Math.Tan(dblNum * (Math.PI / 180) );
+        }
+
     }
 }

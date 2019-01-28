@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CA2_Calculator;
+using System;
 
 namespace CalculatorTests
 {
@@ -20,6 +21,54 @@ namespace CalculatorTests
             Calculator calc = new Calculator();
             var result = calc.Add(2, -5);
             Assert.AreEqual(-3, result);
+        }
+
+        [TestMethod]
+        public void CosFromDeg_ZeroCos_Equals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromDeg(0);
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void CosFromDeg_60Cos_Equals0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromDeg(60);
+            Assert.AreEqual(0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void CosFromDeg_90Cos_EqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromDeg(90);
+            Assert.AreEqual(0, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void CosFromDeg_240Cos_EqualsMinus0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromDeg(240);
+            Assert.AreEqual( -0.5, Math.Round((double)result, 12) );
+        }
+
+        [TestMethod]
+        public void CosFromDeg_Minus60Cos_Equals0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromDeg(-60);
+            Assert.AreEqual(0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void CosFromDeg_900Cos_EqualsMinus1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromDeg(900);
+            Assert.AreEqual(-1, result);
         }
 
         [TestMethod]
@@ -151,6 +200,54 @@ namespace CalculatorTests
         }
 
         [TestMethod]
+        public void SinFromDeg_ZeroSin_EqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromDeg(0);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void SinFromDeg_30Sin_Equals0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromDeg(30);
+            Assert.AreEqual(0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void SinFromDeg_90Sin_Equals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromDeg(90);
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void SinFromDeg_210Sin_EqualsMinus0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromDeg(210);
+            Assert.AreEqual(-0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void SinFromDeg_Minus30Sin_EqualsMinus0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromDeg(-30);
+            Assert.AreEqual(-0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void SinFromDeg_630Sin_EqualsMinus1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromDeg(630);
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
         public void Subtract_10Minus4_Equals6()
         {
             Calculator calc = new Calculator();
@@ -228,6 +325,54 @@ namespace CalculatorTests
             Calculator calc = new Calculator();
             var result = calc.SquareRoot(0);
             Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void TanFromDeg_ZeroTan_EqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromDeg(0);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void TanFromDeg_45Tan_Equals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromDeg(45);
+            Assert.AreEqual(1, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void TanFromDeg_90Tan_EqualsNaN()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromDeg(90);
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
+        public void TanFromDeg_135Tan_EqualsMinus1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromDeg(135);
+            Assert.AreEqual(-1, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void TanFromDeg_Minus45Tan_EqualsMinus1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromDeg(-45);
+            Assert.AreEqual(-1, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void TanFromDeg_585Tan_Equals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromDeg(585);
+            Assert.AreEqual(1, Math.Round((double)result, 12));
         }
     }
 }
