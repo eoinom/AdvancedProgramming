@@ -312,6 +312,7 @@
             this.btnTangent.TabIndex = 18;
             this.btnTangent.Text = "tan";
             this.btnTangent.UseVisualStyleBackColor = false;
+            this.btnTangent.Click += new System.EventHandler(this.operator_OneArg_click);
             // 
             // btnCosine
             // 
@@ -325,6 +326,7 @@
             this.btnCosine.TabIndex = 17;
             this.btnCosine.Text = "cos";
             this.btnCosine.UseVisualStyleBackColor = false;
+            this.btnCosine.Click += new System.EventHandler(this.operator_OneArg_click);
             // 
             // btnSine
             // 
@@ -338,6 +340,7 @@
             this.btnSine.TabIndex = 16;
             this.btnSine.Text = "sin";
             this.btnSine.UseVisualStyleBackColor = false;
+            this.btnSine.Click += new System.EventHandler(this.operator_OneArg_click);
             // 
             // btnCubeRoot
             // 
@@ -351,6 +354,7 @@
             this.btnCubeRoot.TabIndex = 23;
             this.btnCubeRoot.Text = "³√";
             this.btnCubeRoot.UseVisualStyleBackColor = false;
+            this.btnCubeRoot.Click += new System.EventHandler(this.operator_OneArg_click);
             // 
             // btnSquareRoot
             // 
@@ -364,6 +368,7 @@
             this.btnSquareRoot.TabIndex = 22;
             this.btnSquareRoot.Text = "√";
             this.btnSquareRoot.UseVisualStyleBackColor = false;
+            this.btnSquareRoot.Click += new System.EventHandler(this.operator_OneArg_click);
             // 
             // btnCube
             // 
@@ -377,6 +382,7 @@
             this.btnCube.TabIndex = 21;
             this.btnCube.Text = "x³";
             this.btnCube.UseVisualStyleBackColor = false;
+            this.btnCube.Click += new System.EventHandler(this.operator_OneArg_click);
             // 
             // btnSquare
             // 
@@ -390,6 +396,7 @@
             this.btnSquare.TabIndex = 20;
             this.btnSquare.Text = "x²";
             this.btnSquare.UseVisualStyleBackColor = false;
+            this.btnSquare.Click += new System.EventHandler(this.operator_OneArg_click);
             // 
             // btnEraseLeft
             // 
@@ -403,6 +410,7 @@
             this.btnEraseLeft.TabIndex = 27;
             this.btnEraseLeft.Text = "⌫";
             this.btnEraseLeft.UseVisualStyleBackColor = false;
+            this.btnEraseLeft.Click += new System.EventHandler(this.btnEraseLeft_Click);
             // 
             // btnClear
             // 
@@ -430,6 +438,7 @@
             this.btnFactorial.TabIndex = 25;
             this.btnFactorial.Text = "n!";
             this.btnFactorial.UseVisualStyleBackColor = false;
+            this.btnFactorial.Click += new System.EventHandler(this.operator_OneArg_click);
             // 
             // btnPi
             // 
@@ -443,6 +452,7 @@
             this.btnPi.TabIndex = 24;
             this.btnPi.Text = "π";
             this.btnPi.UseVisualStyleBackColor = false;
+            this.btnPi.Click += new System.EventHandler(this.btnPi_Click);
             // 
             // lblLastInput
             // 
@@ -465,6 +475,7 @@
             this.lblAngleType.Size = new System.Drawing.Size(318, 24);
             this.lblAngleType.TabIndex = 30;
             this.lblAngleType.Text = "Deg";
+            this.lblAngleType.Click += new System.EventHandler(this.lblAngleType_Click);
             // 
             // lblResult
             // 

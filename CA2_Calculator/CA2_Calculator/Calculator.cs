@@ -30,6 +30,16 @@ namespace CA2_Calculator
                 return null;
         }
 
+        public Nullable<double> CosFromRad<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (isNum)
+                return Math.Cos(dblNum);
+            else
+                return null;
+        }
+
         public Nullable<double> Cube<T>(T num)
         {
             bool isNum = double.TryParse(num.ToString(), out double dblNum);
@@ -93,6 +103,16 @@ namespace CA2_Calculator
                 return null;
         }
 
+        public Nullable<double> SinFromRad<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (isNum)
+                return Math.Sin(dblNum);
+            else
+                return null;
+        }
+
         public Nullable<double> Square<T>(T numA)
         {
             bool isNum = double.TryParse(numA.ToString(), out double dblNum);
@@ -134,5 +154,21 @@ namespace CA2_Calculator
                 return Math.Tan(dblNum * (Math.PI / 180) );
         }
 
+        public Nullable<double> TanFromRad<T>(T numA)
+        {
+            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+
+            if (!isNum || (dblNum % (Math.PI / 2) == 0 && dblNum % Math.PI != 0))
+                return null;
+            else
+                return Math.Tan(dblNum);
+        }
+
+    }
+
+    public enum AngleType
+    {
+        Deg,
+        Rad
     }
 }

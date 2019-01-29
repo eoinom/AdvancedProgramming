@@ -52,7 +52,7 @@ namespace CalculatorTests
         {
             Calculator calc = new Calculator();
             var result = calc.CosFromDeg(240);
-            Assert.AreEqual( -0.5, Math.Round((double)result, 12) );
+            Assert.AreEqual(-0.5, Math.Round((double)result, 12));
         }
 
         [TestMethod]
@@ -68,6 +68,46 @@ namespace CalculatorTests
         {
             Calculator calc = new Calculator();
             var result = calc.CosFromDeg(900);
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
+        public void CosFromRad_PiOver3Cos_Equals0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromRad(Math.PI / 3.0);
+            Assert.AreEqual(0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void CosFromRad_PiOver2Cos_EqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromRad(Math.PI / 2.0);
+            Assert.AreEqual(0, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void CosFromRad_4PiOver3Cos_EqualsMinus0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromRad(4.0 * Math.PI / 3.0);
+            Assert.AreEqual(-0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void CosFromRad_MinusPiOver3Cos_Equals0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromRad(-Math.PI / 3.0);
+            Assert.AreEqual(0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void CosFromRad_5PICos_EqualsMinus1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.CosFromRad(5.0 * Math.PI);
             Assert.AreEqual(-1, result);
         }
 
@@ -248,6 +288,54 @@ namespace CalculatorTests
         }
 
         [TestMethod]
+        public void SinFromRad_ZeroSin_EqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromRad(0);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void SinFromRad_PiOver6Sin_Equals0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromRad(Math.PI / 6.0);
+            Assert.AreEqual(0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void SinFromRad_PiOver2Sin_Equals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromRad(Math.PI / 2.0);
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void SinFromRad_7PiOver6Sin_EqualsMinus0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromRad(7.0 * Math.PI / 6.0);
+            Assert.AreEqual(-0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void SinFromRad_MinusPiOver6Sin_EqualsMinus0Point5()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromRad(-Math.PI / 6.0);
+            Assert.AreEqual(-0.5, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void SinFromRad_7PiOver2Sin_EqualsMinus1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.SinFromRad(7.0 * Math.PI / 2.0);
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
         public void Subtract_10Minus4_Equals6()
         {
             Calculator calc = new Calculator();
@@ -309,7 +397,7 @@ namespace CalculatorTests
             Calculator calc = new Calculator();
             var result = calc.SquareRoot(-3);
             Assert.AreEqual(double.NaN, result);
-        }      
+        }
 
         [TestMethod]
         public void SquareRoot_2Point25SquareRootEquals1Point5()
