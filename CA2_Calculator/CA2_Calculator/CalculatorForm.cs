@@ -15,7 +15,7 @@ namespace CA2_Calculator
         double arg1 = 0.0;
         double arg2 = 0.0;
         string operation = "";
-        bool operatorJustClicked = false;
+        bool twoArgOperatorJustClicked = false;
         double? result = 0.0;
         AngleType angleType = AngleType.Deg;
         Calculator calc = new Calculator();
@@ -29,12 +29,12 @@ namespace CA2_Calculator
         {
             Button numberBtn = (Button)sender;
 
-            if (lblResult.Text == "0" || operatorJustClicked == true)
+            if (lblResult.Text == "0" || twoArgOperatorJustClicked == true)
                 lblResult.Text = numberBtn.Text;
             else
                 lblResult.Text += numberBtn.Text;
 
-            operatorJustClicked = false;
+            twoArgOperatorJustClicked = false;
         }
 
         private void btnPoint_Click(object sender, EventArgs e)
@@ -44,14 +44,14 @@ namespace CA2_Calculator
             if ( !lblResult.Text.Contains(".") )
                 lblResult.Text += btnPoint.Text;
 
-            operatorJustClicked = false;
+            twoArgOperatorJustClicked = false;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             lblResult.Text = "0";
             lblLastInput.Text = "";
-            operatorJustClicked = false;
+            twoArgOperatorJustClicked = false;
         }
 
         private void btnReverseSign_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace CA2_Calculator
                 else
                     lblResult.Text = "-" + lblResult.Text;
             }
-            operatorJustClicked = false;
+            twoArgOperatorJustClicked = false;
         }
 
         private void operator_OneArg_click(object sender, EventArgs e)
@@ -71,8 +71,43 @@ namespace CA2_Calculator
             Button operatorBtn = (Button)sender;
             operation = operatorBtn.Text;
             arg1 = double.Parse(lblResult.Text);
-            lblLastInput.Text = lblResult.Text + " " + operation;
+            switch (operation)
+            {
+                case "cos":
+                case "sin":
+                case "tan":
+                case "√":
+                case "³√":
+                    lblLastInput.Text = operation + "(" + lblResult.Text + ") =";
+                    break;
+                case "x²":
+                    lblLastInput.Text = lblResult.Text + "² =";
+                    break;
+                case "x³":
+                    lblLastInput.Text = lblResult.Text + "³ =";
+                    break;
+                case "n!":
+                    lblLastInput.Text = lblResult.Text + "! =";
+                    break;
+                default:
+                    lblLastInput.Text = lblResult.Text + " " + operation + " =";
+                    break;
+            }
+            
+            getOneArgResult();
 
+            if (result == null) {
+                lblResult.Text = "Invalid Input";
+            }
+            else {
+                lblResult.Text = result.ToString();
+            }
+
+            twoArgOperatorJustClicked = false;
+        }
+
+        private void getOneArgResult()
+        {
             switch (operation)
             {
                 case "x²":
@@ -106,15 +141,12 @@ namespace CA2_Calculator
                         result = calc.TanFromRad(arg1);
                     break;
                 case "n!":
-                    //result = calc.Factorial(arg1);
+                    result = calc.Factorial(arg1);
                     break;
                 default:
                     result = arg1;
                     break;
             }
-            lblResult.Text = result.ToString();
-
-            //operatorJustClicked = true;
         }
 
         private void operator_TwoArg_click(object sender, EventArgs e)
@@ -123,7 +155,7 @@ namespace CA2_Calculator
             operation = operatorBtn.Text;
             arg1 = double.Parse(lblResult.Text);
             lblLastInput.Text = lblResult.Text + " " + operation;
-            operatorJustClicked = true;
+            twoArgOperatorJustClicked = true;
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
@@ -147,6 +179,7 @@ namespace CA2_Calculator
                     result = arg2;
                     break;
             }
+            lblLastInput.Text = lblLastInput.Text + " " + arg2.ToString() + " =";
             lblResult.Text = result.ToString();
         }
 
@@ -162,7 +195,7 @@ namespace CA2_Calculator
         private void btnPi_Click(object sender, EventArgs e)
         {
             lblResult.Text = Math.PI.ToString();
-            operatorJustClicked = false;
+            twoArgOperatorJustClicked = false;
         }
 
         private void lblAngleType_Click(object sender, EventArgs e)
@@ -177,7 +210,7 @@ namespace CA2_Calculator
                 lblAngleType.Text = "Deg";
                 angleType = AngleType.Deg;
             }
-            operatorJustClicked = false;
+            twoArgOperatorJustClicked = false;
         }
     }
 }

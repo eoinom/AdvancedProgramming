@@ -224,6 +224,38 @@ namespace CalculatorTests
         }
 
         [TestMethod]
+        public void Factorial_3FactorialEquals6()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Factorial(3);
+            Assert.AreEqual(6, result);
+        }
+
+        [TestMethod]
+        public void Factorial_10FactorialEquals3628800()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Factorial(10);
+            Assert.AreEqual(3628800, result);
+        }
+
+        [TestMethod]
+        public void Factorial_ZeroFactorialEquals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Factorial(0);
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void Factorial_Minus3FactorialEqualsNull()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.Factorial(-3);
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
         public void Multiply_Negative5Point2MultiplyBy2_EqualsNegative10Point4()
         {
             Calculator calc = new Calculator();
