@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CA2_Calculator
 {
@@ -19,9 +15,9 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> CosFromDeg<T>(T numA)
+        public Nullable<double> CosFromDeg<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
 
             if (isNum) {
                 return Math.Cos(dblNum * (Math.PI / 180));
@@ -29,9 +25,9 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> CosFromRad<T>(T numA)
+        public Nullable<double> CosFromRad<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
 
             if (isNum) { 
                 return Math.Cos(dblNum);
@@ -49,9 +45,9 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> CubeRoot<T>(T numA)
+        public Nullable<double> CubeRoot<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
 
             if (isNum) { 
                 return Math.Round(Math.Pow(dblNum, 1.0/3), 8);
@@ -81,21 +77,21 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> Factorial<T>(T numA)
+        public Nullable<double> Factorial<T>(T num)
         {
-            bool isNumA = double.TryParse(numA.ToString(), out double dblNumA);
+            bool isNumA = double.TryParse(num.ToString(), out double dblNum);
 
             if (isNumA)
             {
-                if (dblNumA >= 0 && dblNumA % 1 == 0)
-                {
-                    return MathNet.Numerics.SpecialFunctions.Factorial( (int)dblNumA );
-                }
-                else if (dblNumA < 0 && dblNumA % 1 == 0)
+                if ( dblNum > 170 || (dblNum < 0 && dblNum % 1 == 0) )
                 {
                     return null;
                 }
-                return dblNumA * MathNet.Numerics.SpecialFunctions.Gamma(dblNumA);
+                else if (dblNum >= 0 && dblNum % 1 == 0)
+                {
+                    return MathNet.Numerics.SpecialFunctions.Factorial((int)dblNum);
+                }
+                return dblNum * MathNet.Numerics.SpecialFunctions.Gamma(dblNum);
             }
             return null;
         }
@@ -111,9 +107,9 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> SinFromDeg<T>(T numA)
+        public Nullable<double> SinFromDeg<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
 
             if (isNum) { 
                 return Math.Sin(dblNum * (Math.PI / 180));
@@ -121,9 +117,9 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> SinFromRad<T>(T numA)
+        public Nullable<double> SinFromRad<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
 
             if (isNum) { 
                 return Math.Sin(dblNum);
@@ -131,9 +127,9 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> Square<T>(T numA)
+        public Nullable<double> Square<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
 
             if (isNum) { 
                 return Math.Pow(dblNum, 2);
@@ -141,9 +137,9 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> SquareRoot<T>(T numA)
+        public Nullable<double> SquareRoot<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
 
             if (isNum) { 
                 return Math.Sqrt(dblNum);
@@ -162,9 +158,9 @@ namespace CA2_Calculator
             return null;
         }
 
-        public Nullable<double> TanFromDeg<T>(T numA)
+        public Nullable<double> TanFromDeg<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
 
             if (!isNum || (dblNum % 90 == 0 && dblNum % 180 != 0) ) { 
                 return null;
@@ -172,14 +168,24 @@ namespace CA2_Calculator
             return Math.Tan(dblNum * (Math.PI / 180) );
         }
 
-        public Nullable<double> TanFromRad<T>(T numA)
+        public Nullable<double> TanFromRad<T>(T num)
         {
-            bool isNum = double.TryParse(numA.ToString(), out double dblNum);
-
-            if (!isNum || ( dblNum % (Math.PI / 2) == 0 && dblNum % Math.PI != 0) ) { 
+            bool isNum = double.TryParse(num.ToString(), out double dblNum);
+            
+            if (!isNum || ( isApproxZero(dblNum % (Math.PI / 2.0)) && dblNum % Math.PI != 0))
+            { 
                 return null;
             }
             return Math.Tan(dblNum);
+        }
+
+        private bool isApproxZero(double num)
+        {
+            if (num > -1e-12 && num < 1e-12)
+            {
+                return true;
+            }
+            return false;
         }
 
     }

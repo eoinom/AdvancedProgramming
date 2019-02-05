@@ -11,6 +11,10 @@ namespace CA2_Calculator
     {
         static void Main(string[] args)
         {
+            //Application.Run(new CalculatorForm());
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CalculatorForm());
         }
     }

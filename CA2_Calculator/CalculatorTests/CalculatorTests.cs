@@ -48,7 +48,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void CosFromDeg_240Cos_EqualsMinus0Point5()
+        public void CosFromDeg_240Cos_EqualsNegative0Point5()
         {
             Calculator calc = new Calculator();
             var result = calc.CosFromDeg(240);
@@ -56,7 +56,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void CosFromDeg_Minus60Cos_Equals0Point5()
+        public void CosFromDeg_Negative60Cos_Equals0Point5()
         {
             Calculator calc = new Calculator();
             var result = calc.CosFromDeg(-60);
@@ -64,7 +64,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void CosFromDeg_900Cos_EqualsMinus1()
+        public void CosFromDeg_900Cos_EqualsNegative1()
         {
             Calculator calc = new Calculator();
             var result = calc.CosFromDeg(900);
@@ -88,7 +88,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void CosFromRad_4PiOver3Cos_EqualsMinus0Point5()
+        public void CosFromRad_4PiOver3Cos_EqualsNegative0Point5()
         {
             Calculator calc = new Calculator();
             var result = calc.CosFromRad(4.0 * Math.PI / 3.0);
@@ -96,7 +96,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void CosFromRad_MinusPiOver3Cos_Equals0Point5()
+        public void CosFromRad_NegativePiOver3Cos_Equals0Point5()
         {
             Calculator calc = new Calculator();
             var result = calc.CosFromRad(-Math.PI / 3.0);
@@ -104,7 +104,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void CosFromRad_5PICos_EqualsMinus1()
+        public void CosFromRad_5PICos_EqualsNegative1()
         {
             Calculator calc = new Calculator();
             var result = calc.CosFromRad(5.0 * Math.PI);
@@ -120,7 +120,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void Cube_Negative1CubedEqualsMinus1()
+        public void Cube_Negative1CubedEqualsNegative1()
         {
             Calculator calc = new Calculator();
             var result = calc.Cube(-1);
@@ -216,7 +216,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void Exponent_Minus2Exp5EqualsMinus32()
+        public void Exponent_Negative2Exp5EqualsNegative32()
         {
             Calculator calc = new Calculator();
             var result = calc.Exponent(-2, 5);
@@ -248,7 +248,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void Factorial_Minus3FactorialEqualsNull()
+        public void Factorial_Negative3FactorialEqualsNull()
         {
             Calculator calc = new Calculator();
             var result = calc.Factorial(-3);
@@ -296,7 +296,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void SinFromDeg_210Sin_EqualsMinus0Point5()
+        public void SinFromDeg_210Sin_EqualsNegative0Point5()
         {
             Calculator calc = new Calculator();
             var result = calc.SinFromDeg(210);
@@ -304,7 +304,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void SinFromDeg_Minus30Sin_EqualsMinus0Point5()
+        public void SinFromDeg_Negative30Sin_EqualsNegative0Point5()
         {
             Calculator calc = new Calculator();
             var result = calc.SinFromDeg(-30);
@@ -312,7 +312,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void SinFromDeg_630Sin_EqualsMinus1()
+        public void SinFromDeg_630Sin_EqualsNegative1()
         {
             Calculator calc = new Calculator();
             var result = calc.SinFromDeg(630);
@@ -344,7 +344,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void SinFromRad_7PiOver6Sin_EqualsMinus0Point5()
+        public void SinFromRad_7PiOver6Sin_EqualsNegative0Point5()
         {
             Calculator calc = new Calculator();
             var result = calc.SinFromRad(7.0 * Math.PI / 6.0);
@@ -352,7 +352,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void SinFromRad_MinusPiOver6Sin_EqualsMinus0Point5()
+        public void SinFromRad_NegativePiOver6Sin_EqualsNegative0Point5()
         {
             Calculator calc = new Calculator();
             var result = calc.SinFromRad(-Math.PI / 6.0);
@@ -360,7 +360,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void SinFromRad_7PiOver2Sin_EqualsMinus1()
+        public void SinFromRad_7PiOver2Sin_EqualsNegative1()
         {
             Calculator calc = new Calculator();
             var result = calc.SinFromRad(7.0 * Math.PI / 2.0);
@@ -464,7 +464,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void TanFromDeg_90Tan_EqualsNaN()
+        public void TanFromDeg_90Tan_EqualsNull()
         {
             Calculator calc = new Calculator();
             var result = calc.TanFromDeg(90);
@@ -472,7 +472,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void TanFromDeg_135Tan_EqualsMinus1()
+        public void TanFromDeg_135Tan_EqualsNegative1()
         {
             Calculator calc = new Calculator();
             var result = calc.TanFromDeg(135);
@@ -480,7 +480,7 @@ namespace CalculatorTests
         }
 
         [TestMethod]
-        public void TanFromDeg_Minus45Tan_EqualsMinus1()
+        public void TanFromDeg_Negative45Tan_EqualsNegative1()
         {
             Calculator calc = new Calculator();
             var result = calc.TanFromDeg(-45);
@@ -494,5 +494,54 @@ namespace CalculatorTests
             var result = calc.TanFromDeg(585);
             Assert.AreEqual(1, Math.Round((double)result, 12));
         }
+
+        [TestMethod]
+        public void TanFromRad_ZeroTan_EqualsZero()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromRad(0);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void TanFromRad_PiOver4Tan_Equals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromRad(Math.PI / 4.0);
+            Assert.AreEqual(1, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void TanFromRad_PiOver2Tan_EqualsNull()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromRad(Math.PI / 2.0);
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
+        public void TanFromRad_3PiOver4Tan_EqualsNegative1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromRad(3.0 * Math.PI / 4.0);
+            Assert.AreEqual(-1, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void TanFromRad_NegativePiOver4Tan_EqualsNegative1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromRad(-Math.PI / 4.0);
+            Assert.AreEqual(-1, Math.Round((double)result, 12));
+        }
+
+        [TestMethod]
+        public void TanFromRad_13PiOver4Tan_Equals1()
+        {
+            Calculator calc = new Calculator();
+            var result = calc.TanFromRad(13.0 * Math.PI / 4.0);
+            Assert.AreEqual(1, Math.Round((double)result, 12));
+        }
+
     }
 }
