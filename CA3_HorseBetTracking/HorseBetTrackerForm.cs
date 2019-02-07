@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CA3_HorseBetTracking
 {
-    public partial class Form1 : Form
+    public partial class HorseBetTrackerForm : Form
     {
-        public Form1()
+        public HorseBetTrackerForm()
         {
             InitializeComponent();
+        }
+
+        private void HorseBetTrackerForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
