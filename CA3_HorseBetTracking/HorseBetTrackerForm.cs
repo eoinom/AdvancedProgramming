@@ -21,5 +21,13 @@ namespace CA3_HorseBetTracking
         {
 
         }
+
+        private void btnAddBet_Click(object sender, EventArgs e)
+        {
+            using (AddBetForm addBetForm = new AddBetForm())
+            {
+                addBetForm.ShowDialog();
+            }
+        }
     }
 }

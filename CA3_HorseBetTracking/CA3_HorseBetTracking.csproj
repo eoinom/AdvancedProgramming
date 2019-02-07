@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBetForm.Designer.cs">
+      <DependentUpon>AddBetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HorseBetTrackerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddBetForm.resx">
+      <DependentUpon>AddBetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HorseBetTrackerForm.resx">
       <DependentUpon>HorseBetTrackerForm.cs</DependentUpon>
     </EmbeddedResource>

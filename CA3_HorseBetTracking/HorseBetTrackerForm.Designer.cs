@@ -43,7 +43,7 @@
             // rtbBets
             // 
             this.rtbBets.Location = new System.Drawing.Point(5, 5);
-            this.rtbBets.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.rtbBets.Margin = new System.Windows.Forms.Padding(1);
             this.rtbBets.Name = "rtbBets";
             this.rtbBets.Size = new System.Drawing.Size(447, 210);
             this.rtbBets.TabIndex = 0;
@@ -78,6 +78,7 @@
             this.btnAddBet.TabIndex = 3;
             this.btnAddBet.Text = "Add Bet";
             this.btnAddBet.UseVisualStyleBackColor = true;
+            this.btnAddBet.Click += new System.EventHandler(this.btnAddBet_Click);
             // 
             // rtbReports
             // 
@@ -153,7 +154,9 @@
             this.Controls.Add(this.btnExportBets);
             this.Controls.Add(this.btnImportBets);
             this.Controls.Add(this.rtbBets);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(1);
+            this.MaximizeBox = false;
             this.Name = "HorseBetTrackerForm";
             this.Text = "Horse Bet Tracker";
             this.Load += new System.EventHandler(this.HorseBetTrackerForm_Load);
