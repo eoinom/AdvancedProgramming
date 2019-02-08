@@ -52,6 +52,7 @@
     <Compile Include="AddBetForm.Designer.cs">
       <DependentUpon>AddBetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HorseBet.cs" />
     <Compile Include="HorseBetTrackerForm.cs">
       <SubType>Form</SubType>
     </Compile>
