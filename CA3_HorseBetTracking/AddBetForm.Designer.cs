@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblRaceCourse = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRaceCourse = new System.Windows.Forms.TextBox();
             this.lblDate = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpBetDate = new System.Windows.Forms.DateTimePicker();
             this.lblAmount = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBetAmount = new System.Windows.Forms.TextBox();
             this.rbWon = new System.Windows.Forms.RadioButton();
             this.rbLost = new System.Windows.Forms.RadioButton();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRaceCourse
@@ -61,13 +64,15 @@
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Bet Details";
             // 
-            // textBox1
+            // txtRaceCourse
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(15, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 21);
-            this.textBox1.TabIndex = 2;
+            this.txtRaceCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRaceCourse.Location = new System.Drawing.Point(15, 82);
+            this.txtRaceCourse.Name = "txtRaceCourse";
+            this.txtRaceCourse.Size = new System.Drawing.Size(211, 21);
+            this.txtRaceCourse.TabIndex = 2;
+            this.txtRaceCourse.Validating += new System.ComponentModel.CancelEventHandler(this.txtRaceCourse_Validating);
+            this.txtRaceCourse.Validated += new System.EventHandler(this.txtRaceCourse_Validated);
             // 
             // lblDate
             // 
@@ -79,13 +84,15 @@
             this.lblDate.TabIndex = 3;
             this.lblDate.Text = "Date:";
             // 
-            // dateTimePicker1
+            // dtpBetDate
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(72, 116);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(154, 21);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dtpBetDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBetDate.Location = new System.Drawing.Point(84, 116);
+            this.dtpBetDate.Name = "dtpBetDate";
+            this.dtpBetDate.Size = new System.Drawing.Size(142, 21);
+            this.dtpBetDate.TabIndex = 4;
+            this.dtpBetDate.Validating += new System.ComponentModel.CancelEventHandler(this.dtpBetDate_Validating);
+            this.dtpBetDate.Validated += new System.EventHandler(this.dtpBetDate_Validated);
             // 
             // lblAmount
             // 
@@ -93,17 +100,19 @@
             this.lblAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAmount.Location = new System.Drawing.Point(12, 155);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(56, 16);
+            this.lblAmount.Size = new System.Drawing.Size(66, 16);
             this.lblAmount.TabIndex = 5;
-            this.lblAmount.Text = "Amount:";
+            this.lblAmount.Text = "Amount: €";
             // 
-            // textBox2
+            // txtBetAmount
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(72, 152);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 21);
-            this.textBox2.TabIndex = 7;
+            this.txtBetAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBetAmount.Location = new System.Drawing.Point(84, 152);
+            this.txtBetAmount.Name = "txtBetAmount";
+            this.txtBetAmount.Size = new System.Drawing.Size(142, 21);
+            this.txtBetAmount.TabIndex = 7;
+            this.txtBetAmount.Validating += new System.ComponentModel.CancelEventHandler(this.txtBetAmount_Validating);
+            this.txtBetAmount.Validated += new System.EventHandler(this.txtBetAmount_Validated);
             // 
             // rbWon
             // 
@@ -116,6 +125,8 @@
             this.rbWon.TabStop = true;
             this.rbWon.Text = "Won";
             this.rbWon.UseVisualStyleBackColor = true;
+            this.rbWon.Validating += new System.ComponentModel.CancelEventHandler(this.rbWonLost_Validating);
+            this.rbWon.Validated += new System.EventHandler(this.rbWonLost_Validated);
             // 
             // rbLost
             // 
@@ -128,6 +139,8 @@
             this.rbLost.TabStop = true;
             this.rbLost.Text = "Lost";
             this.rbLost.UseVisualStyleBackColor = true;
+            this.rbLost.Validating += new System.ComponentModel.CancelEventHandler(this.rbWonLost_Validating);
+            this.rbLost.Validated += new System.EventHandler(this.rbWonLost_Validated);
             // 
             // btnOK
             // 
@@ -147,6 +160,10 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
+            // 
             // AddBetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,11 +173,11 @@
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.rbLost);
             this.Controls.Add(this.rbWon);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBetAmount);
             this.Controls.Add(this.lblAmount);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpBetDate);
             this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtRaceCourse);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblRaceCourse);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -169,6 +186,7 @@
             this.Name = "AddBetForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Bet";
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,14 +196,15 @@
 
         private System.Windows.Forms.Label lblRaceCourse;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRaceCourse;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpBetDate;
         private System.Windows.Forms.Label lblAmount;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBetAmount;
         private System.Windows.Forms.RadioButton rbWon;
         private System.Windows.Forms.RadioButton rbLost;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ErrorProvider epError;
     }
 }
