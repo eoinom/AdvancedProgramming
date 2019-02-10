@@ -101,5 +101,19 @@ namespace CA3_HorseBetTracking
         {
             epError.SetError(rbLost, string.Empty);
         }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {            
+            if (this.ValidateChildren(ValidationConstraints.Enabled))
+            {
+                MessageBox.Show("Bet Saved!");
+                this.Close();
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
