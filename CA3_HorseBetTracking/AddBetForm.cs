@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace CA3_HorseBetTracking
 {
@@ -11,12 +11,7 @@ namespace CA3_HorseBetTracking
         {
             InitializeComponent();
         }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void txtRaceCourse_Validating(object sender, CancelEventArgs e)
         {
             bool cancel = false;

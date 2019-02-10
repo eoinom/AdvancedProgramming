@@ -26,8 +26,8 @@ namespace CA3_HorseBetTracking
         public override string ToString()
         {
             string betSuccess = BetWon ? "Won" : "Lost";
-            return RaceCourse + ", " + Date.ToShortDateString() + ", " + Price.ToString() +
-                ", " + betSuccess;
+            return RaceCourse + ", " + Date.ToShortDateString() + ", €" + Price.ToString() +
+                ", " + betSuccess + Environment.NewLine;
         }
     }
 }
