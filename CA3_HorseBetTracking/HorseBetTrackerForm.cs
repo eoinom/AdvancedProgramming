@@ -123,5 +123,47 @@ namespace CA3_HorseBetTracking
             }
         }
 
+        private void btnImportBets_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                openFileDialog1.Filter = "Binary File|*.bin";
+                openFileDialog1.Title = "Open Binary File";
+                openFileDialog1.ShowDialog();
+
+                if (openFileDialog1.FileName != "")
+                {
+                    // Opens a binary file via a FileStream created by the OpenFile method  
+                    System.IO.FileStream fs =
+                       (System.IO.FileStream)openFileDialog1.OpenFile();
+
+                    using (fs)
+                    {
+                        using (BinaryReader reader = new BinaryReader(fs))
+                        {
+                            int numBetsRead = 0;
+                            int length = (int)reader.BaseStream.Length;
+                            while (reader.BaseStream.Position != length)
+                            {
+                                string raceCourse = reader.ReadString();
+                                DateTime date = DateTime.FromBinary((long)reader.ReadUInt64());
+                                decimal amount = reader.ReadDecimal();
+                                bool betWon = reader.ReadBoolean();
+                                BetsList.Add(new HorseBet(raceCourse, date, amount, betWon));
+                                numBetsRead++;
+                            }
+                            
+                            MessageBox.Show($"Binary file opened and {numBetsRead} bets read successfully.");
+                            HorseBetTrackerForm_Load(sender, e);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

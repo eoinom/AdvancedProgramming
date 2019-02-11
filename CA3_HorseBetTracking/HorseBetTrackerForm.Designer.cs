@@ -59,6 +59,7 @@
             this.btnImportBets.TabIndex = 1;
             this.btnImportBets.Text = "Import Bets";
             this.btnImportBets.UseVisualStyleBackColor = true;
+            this.btnImportBets.Click += new System.EventHandler(this.btnImportBets_Click);
             // 
             // btnExportBets
             // 
