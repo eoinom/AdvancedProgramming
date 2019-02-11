@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CA3_HorseBetTracking
 {
-    class HorseBet
+    public class HorseBet
     {
         public string RaceCourse { get; set; }
         public DateTime Date { get; set; }

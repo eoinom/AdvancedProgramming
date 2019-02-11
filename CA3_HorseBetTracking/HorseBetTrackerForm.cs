@@ -12,7 +12,8 @@ namespace CA3_HorseBetTracking
 {
     public partial class HorseBetTrackerForm : Form
     {
-        private List<HorseBet> BetsList = new List<HorseBet> { };
+        public HorseBets BetsList = new HorseBets();
+        public int MyProperty { get; set; }
 
         public HorseBetTrackerForm()
         {
@@ -20,7 +21,7 @@ namespace CA3_HorseBetTracking
             AddInitialBets(BetsList);
         }
 
-        private void AddInitialBets( List<HorseBet> list)
+        private void AddInitialBets( HorseBets list)
         {
             list.Add(new HorseBet("Aintree", new DateTime(2017, 05, 12), 11.58m, true));
             list.Add(new HorseBet("Punchestown", new DateTime(2016, 12, 22), 122.52m, true));
@@ -62,6 +63,7 @@ namespace CA3_HorseBetTracking
 
         private void HorseBetTrackerForm_Load(object sender, EventArgs e)
         {
+            rtbBets.Clear();
             foreach (var bet in BetsList)
             {
                 rtbBets.AppendText(bet.ToString());
@@ -70,10 +72,15 @@ namespace CA3_HorseBetTracking
 
         private void btnAddBet_Click(object sender, EventArgs e)
         {
-            using (AddBetForm addBetForm = new AddBetForm())
+            AddBetForm addBetForm = new AddBetForm();
+            var result = addBetForm.ShowDialog();
+
+            if (result == DialogResult.OK)
             {
-                addBetForm.ShowDialog();
+                BetsList.Add(addBetForm.newBet);
+                HorseBetTrackerForm_Load(sender, e);
             }
         }
+
     }
 }

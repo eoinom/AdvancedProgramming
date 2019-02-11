@@ -7,11 +7,13 @@ namespace CA3_HorseBetTracking
 {
     public partial class AddBetForm : Form
     {
+        public HorseBet newBet { get; set; }
+
         public AddBetForm()
         {
             InitializeComponent();
         }
-        
+
         private void txtRaceCourse_Validating(object sender, CancelEventArgs e)
         {
             bool cancel = false;
@@ -98,14 +100,18 @@ namespace CA3_HorseBetTracking
         }
 
         private void btnOK_Click(object sender, EventArgs e)
-        {            
-            if (this.ValidateChildren(ValidationConstraints.Enabled))
+        {   
+            if ( this.ValidateChildren(ValidationConstraints.Enabled) )
             {
-                MessageBox.Show("Bet Saved!");
-                this.Close();
-            }
-        }
+                decimal betAmount = decimal.Parse(txtBetAmount.Text);
+                newBet = new HorseBet(txtRaceCourse.Text, dtpBetDate.Value.Date, betAmount, rbWon.Checked);
 
+                MessageBox.Show("Bet Saved!");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }                  
+        }
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
