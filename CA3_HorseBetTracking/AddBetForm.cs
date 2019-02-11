@@ -12,6 +12,8 @@ namespace CA3_HorseBetTracking
         public AddBetForm()
         {
             InitializeComponent();
+            this.CancelButton = btnCancel;
+            btnCancel.CausesValidation = false;
         }
 
         private void txtRaceCourse_Validating(object sender, CancelEventArgs e)
@@ -113,7 +115,7 @@ namespace CA3_HorseBetTracking
         }
         
         private void btnCancel_Click(object sender, EventArgs e)
-        {
+        {            
             this.Close();
         }
     }
