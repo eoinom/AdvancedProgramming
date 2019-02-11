@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CA3_HorseBetTracking
 {
@@ -79,6 +80,46 @@ namespace CA3_HorseBetTracking
             {
                 BetsList.Add(addBetForm.newBet);
                 HorseBetTrackerForm_Load(sender, e);
+            }
+        }
+
+        private void btnExportBets_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "Binary File|*.bin";
+                saveFileDialog1.Title = "Save Binary File";
+                saveFileDialog1.ShowDialog();
+
+                if (saveFileDialog1.FileName != "")
+                {
+                    // Saves the binary file via a FileStream created by the OpenFile method  
+                    System.IO.FileStream fs =
+                       (System.IO.FileStream)saveFileDialog1.OpenFile();
+
+                    using (fs)
+                    {
+                        using (BinaryWriter writer = new BinaryWriter(fs))
+                        {
+                            int numBetsWritten = 0;
+                            foreach (HorseBet bet in BetsList)
+                            {
+                                //writer.Write(bet.ToString());
+                                writer.Write(bet.RaceCourse);
+                                writer.Write(bet.Date.ToBinary());
+                                writer.Write(bet.Amount);
+                                writer.Write(bet.BetWon);
+                                numBetsWritten++;
+                            }
+                            MessageBox.Show($"Binary file created and {numBetsWritten} bets saved successfully.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

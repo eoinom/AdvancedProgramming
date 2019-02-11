@@ -10,23 +10,23 @@ namespace CA3_HorseBetTracking
     {
         public string RaceCourse { get; set; }
         public DateTime Date { get; set; }
-        public decimal Price { get; set; }
+        public decimal Amount { get; set; }
         public bool BetWon { get; set; }
 
         public HorseBet() { }
 
-        public HorseBet(string raceCourse, DateTime date, decimal price, bool betWon)
+        public HorseBet(string raceCourse, DateTime date, decimal amount, bool betWon)
         {
             RaceCourse = raceCourse;
             Date = date;
-            Price = price;
+            Amount = amount;
             BetWon = betWon;
         }
 
         public override string ToString()
         {
             string betSuccess = BetWon ? "Won" : "Lost";
-            return RaceCourse + ", " + Date.ToShortDateString() + ", €" + Price.ToString() +
+            return RaceCourse + ", " + Date.ToShortDateString() + ", €" + Amount.ToString() +
                 ", " + betSuccess + Environment.NewLine;
         }
     }

@@ -70,6 +70,7 @@
             this.btnExportBets.TabIndex = 2;
             this.btnExportBets.Text = "Export Bets";
             this.btnExportBets.UseVisualStyleBackColor = true;
+            this.btnExportBets.Click += new System.EventHandler(this.btnExportBets_Click);
             // 
             // btnAddBet
             // 
