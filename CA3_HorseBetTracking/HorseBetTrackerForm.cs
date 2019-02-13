@@ -134,36 +134,22 @@ namespace CA3_HorseBetTracking
 
                 if (openFileDialog1.FileName != "")
                 {
-                    // Opens a binary file via a FileStream created by the OpenFile method  
-                    System.IO.FileStream fs =
-                       (System.IO.FileStream)openFileDialog1.OpenFile();
-
-                    using (fs)
+                    int numBetsImported = Reports.ImportBets(openFileDialog1.FileName, ref BetsList);
+                    if (numBetsImported > 0)
                     {
-                        using (BinaryReader reader = new BinaryReader(fs))
-                        {
-                            int numBetsRead = 0;
-                            int length = (int)reader.BaseStream.Length;
-                            while (reader.BaseStream.Position != length)
-                            {
-                                string raceCourse = reader.ReadString();
-                                DateTime date = DateTime.FromBinary((long)reader.ReadUInt64());
-                                decimal amount = reader.ReadDecimal();
-                                bool betWon = reader.ReadBoolean();
-                                BetsList.Add(new HorseBet(raceCourse, date, amount, betWon));
-                                numBetsRead++;
-                            }
-                            
-                            MessageBox.Show($"Binary file opened and {numBetsRead} bets read successfully.");
-                            HorseBetTrackerForm_Load(sender, e);
-                        }
+                        MessageBox.Show($"Binary file opened and {numBetsImported} bets read successfully.");
+                        HorseBetTrackerForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Binary file opened however no bets were found.");
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }            
         }
 
         private void btnYearTotals_Click(object sender, EventArgs e)

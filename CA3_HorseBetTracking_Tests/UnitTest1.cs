@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CA3_HorseBetTracking;
 using System;
+using System.IO;
 
 namespace CA3_HorseBetTracking_Tests
 {
@@ -18,7 +19,17 @@ namespace CA3_HorseBetTracking_Tests
             TestBets.Add(new HorseBet("Fairyhouse", new DateTime(2016, 12, 02), 65.75m, true));
             TestBets.Add(new HorseBet("Ayr", new DateTime(2017, 03, 11), 12.05m, true));
         }
-        
+
+        [TestMethod]
+        public void ImportBetsTest()
+        {
+            string testFile = @"C:\Users\eoin.omalley\OneDrive - Dublin Business School (DBS)\B8IT119 Advanced Programming\0. CA\TestBets2.bin";
+
+            HorseBets tempBets = TestBets;
+            var result = Reports.ImportBets(testFile, ref tempBets);
+
+            Assert.AreEqual(36, result);
+        }
 
         [TestMethod]
         public void GetBetsByDateAscendingTest()
