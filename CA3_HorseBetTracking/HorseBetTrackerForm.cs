@@ -165,5 +165,15 @@ namespace CA3_HorseBetTracking
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnYearTotals_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShowBetsByDate_Click(object sender, EventArgs e)
+        {
+            rtbReports.Text = Reports.GetBetsByDateAscending(BetsList);
+        }
     }
 }

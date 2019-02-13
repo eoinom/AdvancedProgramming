@@ -7,9 +7,17 @@ using System.Threading.Tasks;
 
 namespace CA3_HorseBetTracking
 {
-    public class HorseBets : ICollection<HorseBet>
+    public class HorseBets : IList<HorseBet>
     {
         public List<HorseBet> BetsList = new List<HorseBet>();
+
+        public HorseBet this[int index]
+        {
+            //get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
+            get => BetsList[index];
+            //set => BetsList[index];
+        }
 
         public int Count
         {
@@ -38,7 +46,18 @@ namespace CA3_HorseBetTracking
 
         public void CopyTo(HorseBet[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            if (array == null)
+            {
+                throw new ArgumentNullException("array");
+            }
+            if (arrayIndex < 0 || (array.Length - arrayIndex < Count) )
+            {
+                throw new ArgumentOutOfRangeException("arrayIndex");
+            }            
+            for (int i = 0; i < Count; ++i)
+            {
+                array[i + arrayIndex] = BetsList[i];
+            }                
         }
 
         public IEnumerator<HorseBet> GetEnumerator()
@@ -46,9 +65,24 @@ namespace CA3_HorseBetTracking
             return BetsList.GetEnumerator();
         }
 
+        public int IndexOf(HorseBet item)
+        {
+            return BetsList.IndexOf(item);
+        }
+
+        public void Insert(int index, HorseBet item)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Remove(HorseBet item)
         {
             return BetsList.Remove(item);
+        }
+
+        public void RemoveAt(int index)
+        {
+            throw new NotImplementedException();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
