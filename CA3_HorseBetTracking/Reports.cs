@@ -10,6 +10,30 @@ namespace CA3_HorseBetTracking
 {
     public class Reports
     {
+        public static int ExportBets(string fileName, ref HorseBets bets)
+        {
+            int numBetsWritten = 0;
+
+            // Saves the binary file via a FileStream 
+            FileStream fs = File.Open(fileName, FileMode.OpenOrCreate);
+
+            using (fs)
+            {
+                using (BinaryWriter writer = new BinaryWriter(fs))
+                {                        
+                    foreach (HorseBet bet in bets)
+                    {
+                        writer.Write(bet.RaceCourse);
+                        writer.Write(bet.Date.ToBinary());
+                        writer.Write(bet.Amount);
+                        writer.Write(bet.BetWon);
+                        numBetsWritten++;
+                    }                        
+                }
+            }
+            return numBetsWritten;
+        }
+
         public static int ImportBets(string fileName, ref HorseBets bets)
         {
             int numBetsRead = 0;

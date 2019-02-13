@@ -94,27 +94,8 @@ namespace CA3_HorseBetTracking
 
                 if (saveFileDialog1.FileName != "")
                 {
-                    // Saves the binary file via a FileStream created by the OpenFile method  
-                    System.IO.FileStream fs =
-                       (System.IO.FileStream)saveFileDialog1.OpenFile();
-
-                    using (fs)
-                    {
-                        using (BinaryWriter writer = new BinaryWriter(fs))
-                        {
-                            int numBetsWritten = 0;
-                            foreach (HorseBet bet in BetsList)
-                            {
-                                //writer.Write(bet.ToString());
-                                writer.Write(bet.RaceCourse);
-                                writer.Write(bet.Date.ToBinary());
-                                writer.Write(bet.Amount);
-                                writer.Write(bet.BetWon);
-                                numBetsWritten++;
-                            }
-                            MessageBox.Show($"Binary file created and {numBetsWritten} bets saved successfully.");
-                        }
-                    }
+                    int numBetsExported = Reports.ExportBets(saveFileDialog1.FileName, ref BetsList);
+                    MessageBox.Show($"Binary file created and {numBetsExported} bets saved successfully.");
                 }
             }
             catch (Exception ex)
