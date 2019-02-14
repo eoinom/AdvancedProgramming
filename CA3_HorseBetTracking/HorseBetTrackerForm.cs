@@ -135,6 +135,7 @@ namespace CA3_HorseBetTracking
 
         private void btnYearTotals_Click(object sender, EventArgs e)
         {
+            rtbReports.Text = Reports.GetYearTotals(BetsList);
 
         }
 

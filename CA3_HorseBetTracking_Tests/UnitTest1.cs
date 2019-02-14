@@ -24,11 +24,22 @@ namespace CA3_HorseBetTracking_Tests
         public void GetBetsByDateAscendingTest()
         {
             var result = Reports.GetBetsByDateAscending(TestBets);
-            string checkResult = TestBets[3].ToString() + TestBets[2].ToString() +
+            string expectedResult = TestBets[3].ToString() + TestBets[2].ToString() +
                                     TestBets[4].ToString() + TestBets[1].ToString() +
                                     TestBets[5].ToString() + TestBets[0].ToString();
 
-            Assert.AreEqual(checkResult, result);
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [TestMethod]
+        public void GetYearTotalsTest()
+        {
+            var result = Reports.GetYearTotals(TestBets);
+            string headerText = $"Year\tTotal Won\tTotal Lost{Environment.NewLine}";
+            string expectedResult = headerText + "2016\t€188.27\t\t€45.00" + Environment.NewLine
+                                            + "2017\t€23.63\t\t€0.00" + Environment.NewLine;
+
+            Assert.AreEqual(expectedResult, result);
         }
 
         [TestMethod]

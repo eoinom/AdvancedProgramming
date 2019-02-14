@@ -72,11 +72,32 @@ namespace CA3_HorseBetTracking
             IEnumerable<HorseBet> solutionSet = from bet in bets
                                                 orderby bet.Date
                                                 select bet;
-
             string text = "";
             foreach (var item in solutionSet)
             {
                 text += (item.ToString());
+            }
+            return text;
+        }
+
+        public static string GetYearTotals(HorseBets bets)
+        {
+            var yearTotals =
+                    from bet in bets
+                    group bet by bet.Date.Year into groupByYear
+                    orderby groupByYear.Key
+                    select new {
+                        Year = groupByYear.Key,
+                        WonTotal = groupByYear.AsEnumerable().Where(x => x.BetWon == true).Sum(x=>x.Amount),
+                        LostTotal = groupByYear.AsEnumerable().Where(x => x.BetWon == false).Sum(x => x.Amount)
+                    };
+
+            string text = $"Year\tTotal Won\tTotal Lost{Environment.NewLine}";
+            foreach (var item in yearTotals)
+            {
+                string amountWon = String.Format("{0:0.00}", item.WonTotal);
+                string amountLost = String.Format("{0:0.00}", item.LostTotal);
+                text += $"{item.Year}\t€{amountWon}\t\t€{amountLost}{Environment.NewLine}";
             }
             return text;
         }
