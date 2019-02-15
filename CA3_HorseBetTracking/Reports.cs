@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace CA3_HorseBetTracking
 {
@@ -67,17 +68,27 @@ namespace CA3_HorseBetTracking
             return numBetsRead;
         }
 
-        public static string GetBetsByDateAscending(HorseBets bets)
+        public static void GetBetsByDateAscending(ref HorseBets bets)
         {
             IEnumerable<HorseBet> solutionSet = from bet in bets
                                                 orderby bet.Date
                                                 select bet;
-            string text = "";
+            //string text = "";
+            //foreach (var item in solutionSet)
+            //{
+            //    text += (item.ToString());
+            //}
+            //return text;
+            HorseBets tempBets = new HorseBets();
+            //tempBets.BetsList = solutionSet as BindingList<HorseBet>;
             foreach (var item in solutionSet)
             {
-                text += (item.ToString());
+                tempBets.Add(item);
             }
-            return text;
+            bets.Clear();
+            bets = tempBets;
+            //bets.BetsList = solutionSet as BindingList<HorseBet>;
+            //return solutionSet;
         }
 
         public static string GetYearTotals(HorseBets bets)
@@ -97,7 +108,7 @@ namespace CA3_HorseBetTracking
             {
                 string amountWon = String.Format("{0:0.00}", item.WonTotal);
                 string amountLost = String.Format("{0:0.00}", item.LostTotal);
-                text += $"{item.Year}\t€{amountWon}\t\t€{amountLost}{Environment.NewLine}";
+                text += $"{item.Year}\t€{amountWon}\t€{amountLost}{Environment.NewLine}";
             }
             return text;
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace CA3_HorseBetTracking
 {
     public class HorseBets : IList<HorseBet>
     {
-        public List<HorseBet> BetsList = new List<HorseBet>();
+        public BindingList<HorseBet> BetsList = new BindingList<HorseBet>();
 
         public HorseBet this[int index]
         {
@@ -87,7 +88,7 @@ namespace CA3_HorseBetTracking
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
