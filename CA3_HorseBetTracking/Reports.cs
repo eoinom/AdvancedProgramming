@@ -68,48 +68,37 @@ namespace CA3_HorseBetTracking
             return numBetsRead;
         }
 
-        public static void GetBetsByDateAscending(ref HorseBets bets)
+        public static HorseBets GetBetsByDateAscending(HorseBets bets)
         {
             IEnumerable<HorseBet> solutionSet = from bet in bets
                                                 orderby bet.Date
                                                 select bet;
-            //string text = "";
-            //foreach (var item in solutionSet)
-            //{
-            //    text += (item.ToString());
-            //}
-            //return text;
+
             HorseBets tempBets = new HorseBets();
-            //tempBets.BetsList = solutionSet as BindingList<HorseBet>;
             foreach (var item in solutionSet)
             {
                 tempBets.Add(item);
             }
-            bets.Clear();
-            bets = tempBets;
-            //bets.BetsList = solutionSet as BindingList<HorseBet>;
-            //return solutionSet;
+            return tempBets;
         }
 
         public static string GetYearTotals(HorseBets bets)
         {
             var yearTotals =
-                    from bet in bets
-                    group bet by bet.Date.Year into groupByYear
-                    orderby groupByYear.Key
-                    select new {
-                        Year = groupByYear.Key,
-                        WonTotal = groupByYear.AsEnumerable().Where(x => x.BetWon == true).Sum(x=>x.Amount),
-                        LostTotal = groupByYear.AsEnumerable().Where(x => x.BetWon == false).Sum(x => x.Amount)
-                    };
+                from bet in bets
+                group bet by bet.Date.Year into groupByYear
+                orderby groupByYear.Key
+                select new {
+                    Year = groupByYear.Key.ToString(),
+                    WonTotal = groupByYear.AsEnumerable().Where(x => x.BetWon).Sum(x => x.Amount).ToString("0.00"),
+                    LostTotal = groupByYear.AsEnumerable().Where(x => !x.BetWon).Sum(x => x.Amount).ToString("0.00")
+                };
 
-            string text = $"Year\tTotal Won\tTotal Lost{Environment.NewLine}";
-            foreach (var item in yearTotals)
-            {
-                string amountWon = String.Format("{0:0.00}", item.WonTotal);
-                string amountLost = String.Format("{0:0.00}", item.LostTotal);
-                text += $"{item.Year}\t€{amountWon}\t€{amountLost}{Environment.NewLine}";
-            }
+            string text = String.Format("{0,-11}{1,-15}{2,-15}{3}", "Year", "Total Won", "Total Lost", Environment.NewLine);
+
+            text += string.Join(Environment.NewLine,
+                        yearTotals.Select(y => String.Format("{0,-10}€{1,-14}€{2,-14}", y.Year, y.WonTotal, y.LostTotal)));
+            
             return text;
         }
     }

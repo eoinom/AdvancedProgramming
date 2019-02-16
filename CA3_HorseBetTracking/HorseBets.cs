@@ -12,11 +12,12 @@ namespace CA3_HorseBetTracking
     {
         public BindingList<HorseBet> BetsList = new BindingList<HorseBet>();
 
+        public HorseBets() { }
+
         public HorseBet this[int index]
         {
-            //get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
             get => BetsList[index];
+            set => throw new NotImplementedException();
             //set => BetsList[index];
         }
 

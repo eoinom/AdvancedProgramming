@@ -23,21 +23,29 @@ namespace CA3_HorseBetTracking_Tests
         [TestMethod]
         public void GetBetsByDateAscendingTest()
         {
-            var result = Reports.GetBetsByDateAscending(TestBets);
-            string expectedResult = TestBets[3].ToString() + TestBets[2].ToString() +
-                                    TestBets[4].ToString() + TestBets[1].ToString() +
-                                    TestBets[5].ToString() + TestBets[0].ToString();
+            HorseBets result = Reports.GetBetsByDateAscending(TestBets);
 
-            Assert.AreEqual(expectedResult, result);
+            HorseBets expectedResult = new HorseBets();
+            expectedResult.Add(TestBets[3]);
+            expectedResult.Add(TestBets[2]);
+            expectedResult.Add(TestBets[4]);
+            expectedResult.Add(TestBets[1]);
+            expectedResult.Add(TestBets[5]);
+            expectedResult.Add(TestBets[0]);
+
+            CollectionAssert.AreEqual(expectedResult.BetsList, result.BetsList);
         }
 
         [TestMethod]
         public void GetYearTotalsTest()
         {
             var result = Reports.GetYearTotals(TestBets);
-            string headerText = $"Year\tTotal Won\tTotal Lost{Environment.NewLine}";
-            string expectedResult = headerText + "2016\t€188.27\t\t€45.00" + Environment.NewLine
-                                            + "2017\t€23.63\t\t€0.00" + Environment.NewLine;
+
+            string expectedResult = 
+                string.Join(Environment.NewLine,
+                        new[]{String.Format("{0,-11}{1,-15}{2,-15}", "Year", "Total Won", "Total Lost"),
+                                String.Format("{0,-10}€{1,-14}€{2,-14}", "2016", "188.27", "45.00"),
+                                String.Format("{0,-10}€{1,-14}€{2,-14}", "2017", "23.63", "0.00") });
 
             Assert.AreEqual(expectedResult, result);
         }
@@ -45,7 +53,8 @@ namespace CA3_HorseBetTracking_Tests
         [TestMethod]
         public void ExportImportBetsTest()
         {
-            string testOutFile = @"C:\Users\eoin.omalley\OneDrive - Dublin Business School (DBS)\B8IT119 Advanced Programming\0. CA\TestBetsOut.bin";
+            // Output file to following directory: "[Project Path]\CA3_HorseBetTracking_Tests\TestFiles"
+            string testOutFile = @"..\..\..\.\TestFiles\TestBetsOut.bin";
 
             HorseBets tempBets = TestBets;
 
@@ -61,7 +70,8 @@ namespace CA3_HorseBetTracking_Tests
         [TestMethod]
         public void ImportBetsTest()
         {
-            string testFile = @"C:\Users\eoin.omalley\OneDrive - Dublin Business School (DBS)\B8IT119 Advanced Programming\0. CA\TestBets2.bin";
+            // Import file from following directory: "[Project Path]\CA3_HorseBetTracking_Tests\TestFiles"
+            string testFile = @"..\..\..\.\TestFiles\TestBetsImport.bin";
 
             HorseBets tempBets = TestBets;
             var result = Reports.ImportBets(testFile, ref tempBets);

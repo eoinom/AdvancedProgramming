@@ -95,7 +95,8 @@ namespace CA3_HorseBetTracking
 
         private void btnShowBetsByDate_Click(object sender, EventArgs e)
         {
-            Reports.GetBetsByDateAscending(ref TipstersBets);
+            //Reports.GetBetsByDateAscending(ref TipstersBets);
+            TipstersBets = Reports.GetBetsByDateAscending(TipstersBets);
             HorseBetTrackerForm_Load(sender, e);
         }
     }
