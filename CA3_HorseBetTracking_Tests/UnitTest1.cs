@@ -38,6 +38,13 @@ namespace CA3_HorseBetTracking_Tests
         }
 
         [TestMethod]
+        public void GetMostPopularCourseTest()
+        {
+            var result = Reports.GetMostPopularCourse(TestBets);
+            Assert.AreEqual("Ayr", result);
+        }
+
+        [TestMethod]
         public void GetYearTotalsTest()
         {
             var result = Reports.GetYearTotals(TestBets);

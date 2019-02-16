@@ -97,5 +97,18 @@ namespace CA3_HorseBetTracking
             TipstersBets = Reports.GetBetsByDateAscending(TipstersBets);
             HorseBetTrackerForm_Load(sender, e);
         }
+
+        private void btnMostPopularCourse_Click(object sender, EventArgs e)
+        {
+            switch (TipstersBets.Count)
+            {
+                case 0:
+                    rtbReports.Text = "Can't get most popular course as no bets have been entered";
+                    break;
+                default:
+                    rtbReports.Text = "Most Popular Race Course is: " + Reports.GetMostPopularCourse(TipstersBets);
+                    break;
+            }
+        }
     }
 }

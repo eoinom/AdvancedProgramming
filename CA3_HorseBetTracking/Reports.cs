@@ -101,5 +101,26 @@ namespace CA3_HorseBetTracking
             
             return text;
         }
+
+        public static string GetMostPopularCourse(BindingList<HorseBet> bets)
+        {
+            try
+            {
+                var popularCourses =
+                from bet in bets
+                group bet by bet.RaceCourse into groupByRaceCourse
+                orderby groupByRaceCourse.Count()
+                select new
+                {
+                    NumberBets = groupByRaceCourse.Count(),
+                    Course = groupByRaceCourse.ElementAt(0).RaceCourse
+                };
+                return popularCourses.Select(c => c.Course).Last();
+            }
+            catch (Exception ex)
+            {
+                return "Error! " + ex.Message;
+            }            
+        }
     }
 }
