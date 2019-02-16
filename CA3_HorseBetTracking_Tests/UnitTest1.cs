@@ -2,13 +2,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CA3_HorseBetTracking;
 using System;
 using System.IO;
+using System.ComponentModel;
 
 namespace CA3_HorseBetTracking_Tests
 {
     [TestClass]
     public class HorseBetUnitTests
     {
-        public HorseBets TestBets { get; set; } = new HorseBets() { };
+        public BindingList<HorseBet> TestBets { get; set; } = new BindingList<HorseBet>() { };
         
         public HorseBetUnitTests()
         {
@@ -23,9 +24,9 @@ namespace CA3_HorseBetTracking_Tests
         [TestMethod]
         public void GetBetsByDateAscendingTest()
         {
-            HorseBets result = Reports.GetBetsByDateAscending(TestBets);
+            BindingList<HorseBet> result = Reports.GetBetsByDateAscending(TestBets);
 
-            HorseBets expectedResult = new HorseBets();
+            BindingList<HorseBet> expectedResult = new BindingList<HorseBet>();
             expectedResult.Add(TestBets[3]);
             expectedResult.Add(TestBets[2]);
             expectedResult.Add(TestBets[4]);
@@ -33,7 +34,7 @@ namespace CA3_HorseBetTracking_Tests
             expectedResult.Add(TestBets[5]);
             expectedResult.Add(TestBets[0]);
 
-            CollectionAssert.AreEqual(expectedResult.BetsList, result.BetsList);
+            CollectionAssert.AreEqual(expectedResult, result);
         }
 
         [TestMethod]
@@ -56,7 +57,7 @@ namespace CA3_HorseBetTracking_Tests
             // Output file to following directory: "[Project Path]\CA3_HorseBetTracking_Tests\TestFiles"
             string testOutFile = @"..\..\..\.\TestFiles\TestBetsOut.bin";
 
-            HorseBets tempBets = TestBets;
+            BindingList<HorseBet> tempBets = TestBets;
 
             // check the number of bets exported
             var numExported = Reports.ExportBets(testOutFile, ref tempBets);
@@ -73,7 +74,7 @@ namespace CA3_HorseBetTracking_Tests
             // Import file from following directory: "[Project Path]\CA3_HorseBetTracking_Tests\TestFiles"
             string testFile = @"..\..\..\.\TestFiles\TestBetsImport.bin";
 
-            HorseBets tempBets = TestBets;
+            BindingList<HorseBet> tempBets = TestBets;
             var result = Reports.ImportBets(testFile, ref tempBets);
 
             Assert.AreEqual(36, result);

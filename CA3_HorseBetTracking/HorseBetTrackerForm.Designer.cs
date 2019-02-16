@@ -156,10 +156,6 @@
             this.dgvBets.Size = new System.Drawing.Size(615, 327);
             this.dgvBets.TabIndex = 10;
             // 
-            // horseBetsBindingSource
-            // 
-            this.horseBetsBindingSource.DataSource = typeof(CA3_HorseBetTracking.HorseBets);
-            // 
             // HorseBetTrackerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

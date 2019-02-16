@@ -11,7 +11,7 @@ namespace CA3_HorseBetTracking
 {
     public class Reports
     {
-        public static int ExportBets(string fileName, ref HorseBets bets)
+        public static int ExportBets(string fileName, ref BindingList<HorseBet> bets)
         {
             int numBetsWritten = 0;
 
@@ -35,7 +35,7 @@ namespace CA3_HorseBetTracking
             return numBetsWritten;
         }
 
-        public static int ImportBets(string fileName, ref HorseBets bets)
+        public static int ImportBets(string fileName, ref BindingList<HorseBet> bets)
         {
             int numBetsRead = 0;
 
@@ -68,13 +68,13 @@ namespace CA3_HorseBetTracking
             return numBetsRead;
         }
 
-        public static HorseBets GetBetsByDateAscending(HorseBets bets)
+        public static BindingList<HorseBet> GetBetsByDateAscending(BindingList<HorseBet> bets)
         {
             IEnumerable<HorseBet> solutionSet = from bet in bets
                                                 orderby bet.Date
                                                 select bet;
 
-            HorseBets tempBets = new HorseBets();
+            BindingList<HorseBet> tempBets = new BindingList<HorseBet>();
             foreach (var item in solutionSet)
             {
                 tempBets.Add(item);
@@ -82,7 +82,7 @@ namespace CA3_HorseBetTracking
             return tempBets;
         }
 
-        public static string GetYearTotals(HorseBets bets)
+        public static string GetYearTotals(BindingList<HorseBet> bets)
         {
             var yearTotals =
                 from bet in bets

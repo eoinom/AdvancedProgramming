@@ -13,8 +13,7 @@ namespace CA3_HorseBetTracking
 {
     public partial class HorseBetTrackerForm : Form
     {
-        public HorseBets TipstersBets = new HorseBets();
-        public int MyProperty { get; set; }
+        public BindingList<HorseBet> TipstersBets = new BindingList<HorseBet>();
 
         public HorseBetTrackerForm()
         {
@@ -23,7 +22,7 @@ namespace CA3_HorseBetTracking
         
         private void HorseBetTrackerForm_Load(object sender, EventArgs e)
         {
-            dgvBets.DataSource = new BindingSource(TipstersBets.BetsList, null);
+            dgvBets.DataSource = new BindingSource(TipstersBets, null);
         }
 
         private void btnAddBet_Click(object sender, EventArgs e)
@@ -95,7 +94,6 @@ namespace CA3_HorseBetTracking
 
         private void btnShowBetsByDate_Click(object sender, EventArgs e)
         {
-            //Reports.GetBetsByDateAscending(ref TipstersBets);
             TipstersBets = Reports.GetBetsByDateAscending(TipstersBets);
             HorseBetTrackerForm_Load(sender, e);
         }
