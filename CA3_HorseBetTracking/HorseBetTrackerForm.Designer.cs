@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HorseBetTrackerForm));
             this.btnImportBets = new System.Windows.Forms.Button();
             this.btnExportBets = new System.Windows.Forms.Button();
             this.btnAddBet = new System.Windows.Forms.Button();
@@ -168,6 +169,7 @@
             this.Controls.Add(this.btnExportBets);
             this.Controls.Add(this.btnImportBets);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.MaximizeBox = false;
             this.Name = "HorseBetTrackerForm";
