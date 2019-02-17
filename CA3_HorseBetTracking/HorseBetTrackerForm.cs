@@ -42,14 +42,16 @@ namespace CA3_HorseBetTracking
             try
             {
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.Filter = "Binary File|*.bin";
-                saveFileDialog1.Title = "Save Binary File";
+                saveFileDialog1.Filter = "Binary File|*.bin|CSV File|*.csv";
+                saveFileDialog1.Title = "Save File";
                 saveFileDialog1.ShowDialog();
+                string fileName = saveFileDialog1.FileName;
 
-                if (saveFileDialog1.FileName != "")
+                if (fileName != "")
                 {
-                    int numBetsExported = Reports.ExportBets(saveFileDialog1.FileName, ref TipstersBets);
-                    MessageBox.Show($"Binary file created and {numBetsExported} bets saved successfully.");
+                    string fileType = GetFileType( Path.GetExtension(fileName) );
+                    int numBetsExported = FileIO.ExportBets(fileName, ref TipstersBets);
+                    MessageBox.Show($"{fileType} file created and {numBetsExported} bets saved successfully.");
                 }
             }
             catch (Exception ex)
@@ -63,21 +65,23 @@ namespace CA3_HorseBetTracking
             try
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                openFileDialog1.Filter = "Binary File|*.bin";
-                openFileDialog1.Title = "Open Binary File";
+                openFileDialog1.Filter = "Binary File|*.bin|CSV File|*.csv";
+                openFileDialog1.Title = "Import File";
                 openFileDialog1.ShowDialog();
-
-                if (openFileDialog1.FileName != "")
+                string fileName = openFileDialog1.FileName;
+                
+                if (fileName != "")
                 {
-                    int numBetsImported = Reports.ImportBets(openFileDialog1.FileName, ref TipstersBets);
+                    string fileType = GetFileType(Path.GetExtension(fileName));
+                    int numBetsImported = FileIO.ImportBets(fileName, ref TipstersBets);
                     if (numBetsImported > 0)
                     {
-                        MessageBox.Show($"Binary file opened and {numBetsImported} bets read successfully.");
+                        MessageBox.Show($"{fileType} file opened and {numBetsImported} bets read successfully.");
                         HorseBetTrackerForm_Load(sender, e);
                     }
                     else
                     {
-                        MessageBox.Show($"Binary file opened however no bets were found.");
+                        MessageBox.Show($"{fileType} file opened however no bets were found.");
                     }
                 }
             }
@@ -142,6 +146,19 @@ namespace CA3_HorseBetTracking
                                         $"Total number of bets won: {numOfWins.ToString()}{Environment.NewLine}" +
                                         $"Therefore, win ratio = {winRatioPercentage.ToString("0.0")}%";
                     break;
+            }
+        }
+
+        private static string GetFileType(string fileExt)
+        {
+            switch (fileExt)
+            {
+                case "bin":
+                    return "Binary";
+                case "csv":
+                    return "CSV";
+                default:
+                    return fileExt;
             }
         }
     }

@@ -95,11 +95,11 @@ namespace CA3_HorseBetTracking_Tests
             BindingList<HorseBet> tempBets = TestBets;
 
             // check the number of bets exported
-            var numExported = Reports.ExportBets(testOutFile, ref tempBets);
+            var numExported = FileIO.ExportBets(testOutFile, ref tempBets);
             Assert.AreEqual(6, numExported);
 
             // import the exported bets to see that they can be imported again successfully (therefore they're in the correct format)
-            var numImported = Reports.ImportBets(testOutFile, ref tempBets);
+            var numImported = FileIO.ImportBets(testOutFile, ref tempBets);
             Assert.AreEqual(6, numImported);
         }
 
@@ -110,7 +110,7 @@ namespace CA3_HorseBetTracking_Tests
             string testFile = @"..\..\..\.\TestFiles\TestBetsImport.bin";
 
             BindingList<HorseBet> tempBets = TestBets;
-            var result = Reports.ImportBets(testFile, ref tempBets);
+            var result = FileIO.ImportBets(testFile, ref tempBets);
 
             Assert.AreEqual(36, result);
         }
