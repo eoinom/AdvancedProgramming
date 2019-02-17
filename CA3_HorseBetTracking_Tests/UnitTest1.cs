@@ -59,6 +59,20 @@ namespace CA3_HorseBetTracking_Tests
         }
 
         [TestMethod]
+        public void GetTotalNumberOfBetsTest()
+        {
+            var result = Reports.GetTotalNumberOfBets(TestBets);
+            Assert.AreEqual(6, result);
+        }
+
+        [TestMethod]
+        public void GetTotalNumberOfWinsTest()
+        {
+            var result = Reports.GetTotalNumberOfWins(TestBets);
+            Assert.AreEqual(4, result);
+        }
+
+        [TestMethod]
         public void GetYearTotalsTest()
         {
             var result = Reports.GetYearTotals(TestBets);

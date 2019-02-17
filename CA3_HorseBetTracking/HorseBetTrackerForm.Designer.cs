@@ -47,10 +47,9 @@
             // btnImportBets
             // 
             this.btnImportBets.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportBets.Location = new System.Drawing.Point(1258, 145);
-            this.btnImportBets.Margin = new System.Windows.Forms.Padding(8);
+            this.btnImportBets.Location = new System.Drawing.Point(472, 61);
             this.btnImportBets.Name = "btnImportBets";
-            this.btnImportBets.Size = new System.Drawing.Size(288, 114);
+            this.btnImportBets.Size = new System.Drawing.Size(108, 48);
             this.btnImportBets.TabIndex = 1;
             this.btnImportBets.Text = "Import Bets";
             this.btnImportBets.UseVisualStyleBackColor = true;
@@ -59,10 +58,9 @@
             // btnExportBets
             // 
             this.btnExportBets.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportBets.Location = new System.Drawing.Point(1258, 273);
-            this.btnExportBets.Margin = new System.Windows.Forms.Padding(8);
+            this.btnExportBets.Location = new System.Drawing.Point(472, 114);
             this.btnExportBets.Name = "btnExportBets";
-            this.btnExportBets.Size = new System.Drawing.Size(288, 114);
+            this.btnExportBets.Size = new System.Drawing.Size(108, 48);
             this.btnExportBets.TabIndex = 2;
             this.btnExportBets.Text = "Export Bets";
             this.btnExportBets.UseVisualStyleBackColor = true;
@@ -71,10 +69,9 @@
             // btnAddBet
             // 
             this.btnAddBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBet.Location = new System.Drawing.Point(1258, 16);
-            this.btnAddBet.Margin = new System.Windows.Forms.Padding(8);
+            this.btnAddBet.Location = new System.Drawing.Point(472, 7);
             this.btnAddBet.Name = "btnAddBet";
-            this.btnAddBet.Size = new System.Drawing.Size(288, 114);
+            this.btnAddBet.Size = new System.Drawing.Size(108, 48);
             this.btnAddBet.TabIndex = 3;
             this.btnAddBet.Text = "Add Bet";
             this.btnAddBet.UseVisualStyleBackColor = true;
@@ -83,20 +80,19 @@
             // rtbReports
             // 
             this.rtbReports.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbReports.Location = new System.Drawing.Point(14, 659);
-            this.rtbReports.Margin = new System.Windows.Forms.Padding(2);
+            this.rtbReports.Location = new System.Drawing.Point(5, 276);
+            this.rtbReports.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.rtbReports.Name = "rtbReports";
-            this.rtbReports.Size = new System.Drawing.Size(1226, 368);
+            this.rtbReports.Size = new System.Drawing.Size(462, 157);
             this.rtbReports.TabIndex = 4;
             this.rtbReports.Text = "";
             // 
             // btnYearTotals
             // 
             this.btnYearTotals.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYearTotals.Location = new System.Drawing.Point(1254, 529);
-            this.btnYearTotals.Margin = new System.Windows.Forms.Padding(8);
+            this.btnYearTotals.Location = new System.Drawing.Point(470, 222);
             this.btnYearTotals.Name = "btnYearTotals";
-            this.btnYearTotals.Size = new System.Drawing.Size(288, 114);
+            this.btnYearTotals.Size = new System.Drawing.Size(108, 48);
             this.btnYearTotals.TabIndex = 5;
             this.btnYearTotals.Text = "Year Totals";
             this.btnYearTotals.UseVisualStyleBackColor = true;
@@ -105,10 +101,9 @@
             // btnMostPopularCourse
             // 
             this.btnMostPopularCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostPopularCourse.Location = new System.Drawing.Point(1254, 659);
-            this.btnMostPopularCourse.Margin = new System.Windows.Forms.Padding(8);
+            this.btnMostPopularCourse.Location = new System.Drawing.Point(470, 276);
             this.btnMostPopularCourse.Name = "btnMostPopularCourse";
-            this.btnMostPopularCourse.Size = new System.Drawing.Size(288, 114);
+            this.btnMostPopularCourse.Size = new System.Drawing.Size(108, 48);
             this.btnMostPopularCourse.TabIndex = 6;
             this.btnMostPopularCourse.Text = "Most Popular Course";
             this.btnMostPopularCourse.UseVisualStyleBackColor = true;
@@ -117,10 +112,9 @@
             // btnShowBetsByDate
             // 
             this.btnShowBetsByDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowBetsByDate.Location = new System.Drawing.Point(1258, 399);
-            this.btnShowBetsByDate.Margin = new System.Windows.Forms.Padding(8);
+            this.btnShowBetsByDate.Location = new System.Drawing.Point(472, 167);
             this.btnShowBetsByDate.Name = "btnShowBetsByDate";
-            this.btnShowBetsByDate.Size = new System.Drawing.Size(288, 114);
+            this.btnShowBetsByDate.Size = new System.Drawing.Size(108, 48);
             this.btnShowBetsByDate.TabIndex = 7;
             this.btnShowBetsByDate.Text = "Sort Bets by Date";
             this.btnShowBetsByDate.UseVisualStyleBackColor = true;
@@ -129,10 +123,9 @@
             // btnHighestWonAndLost
             // 
             this.btnHighestWonAndLost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHighestWonAndLost.Location = new System.Drawing.Point(1258, 789);
-            this.btnHighestWonAndLost.Margin = new System.Windows.Forms.Padding(8);
+            this.btnHighestWonAndLost.Location = new System.Drawing.Point(472, 331);
             this.btnHighestWonAndLost.Name = "btnHighestWonAndLost";
-            this.btnHighestWonAndLost.Size = new System.Drawing.Size(288, 114);
+            this.btnHighestWonAndLost.Size = new System.Drawing.Size(108, 48);
             this.btnHighestWonAndLost.TabIndex = 8;
             this.btnHighestWonAndLost.Text = "Highest Won and Lost";
             this.btnHighestWonAndLost.UseVisualStyleBackColor = true;
@@ -141,10 +134,9 @@
             // btnHowSuccessful
             // 
             this.btnHowSuccessful.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHowSuccessful.Location = new System.Drawing.Point(1258, 916);
-            this.btnHowSuccessful.Margin = new System.Windows.Forms.Padding(8);
+            this.btnHowSuccessful.Location = new System.Drawing.Point(472, 384);
             this.btnHowSuccessful.Name = "btnHowSuccessful";
-            this.btnHowSuccessful.Size = new System.Drawing.Size(288, 114);
+            this.btnHowSuccessful.Size = new System.Drawing.Size(108, 48);
             this.btnHowSuccessful.TabIndex = 9;
             this.btnHowSuccessful.Text = "How Successful";
             this.btnHowSuccessful.UseVisualStyleBackColor = true;
@@ -153,18 +145,18 @@
             // dgvBets
             // 
             this.dgvBets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBets.Location = new System.Drawing.Point(14, 12);
-            this.dgvBets.Margin = new System.Windows.Forms.Padding(6);
+            this.dgvBets.Location = new System.Drawing.Point(5, 5);
+            this.dgvBets.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvBets.Name = "dgvBets";
             this.dgvBets.RowTemplate.Height = 24;
-            this.dgvBets.Size = new System.Drawing.Size(1230, 634);
+            this.dgvBets.Size = new System.Drawing.Size(461, 266);
             this.dgvBets.TabIndex = 10;
             // 
             // HorseBetTrackerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1572, 1044);
+            this.ClientSize = new System.Drawing.Size(584, 438);
             this.Controls.Add(this.dgvBets);
             this.Controls.Add(this.btnHowSuccessful);
             this.Controls.Add(this.btnHighestWonAndLost);
@@ -176,7 +168,7 @@
             this.Controls.Add(this.btnExportBets);
             this.Controls.Add(this.btnImportBets);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.MaximizeBox = false;
             this.Name = "HorseBetTrackerForm";
             this.Text = "Horse Bet Tracker";

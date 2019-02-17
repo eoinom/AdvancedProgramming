@@ -129,7 +129,20 @@ namespace CA3_HorseBetTracking
 
         private void btnHowSuccessful_Click(object sender, EventArgs e)
         {
-
+            switch (TipstersBets.Count)
+            {
+                case 0:
+                    rtbReports.Text = "Can't output report as no bets have been entered";
+                    break;
+                default:
+                    int numOfBets = Reports.GetTotalNumberOfBets(TipstersBets);
+                    int numOfWins = Reports.GetTotalNumberOfWins(TipstersBets);
+                    double winRatioPercentage = (100.0 * numOfWins / numOfBets);
+                    rtbReports.Text = $"Total number of bets laid: {numOfBets.ToString()}{Environment.NewLine}" +
+                                        $"Total number of bets won: {numOfWins.ToString()}{Environment.NewLine}" +
+                                        $"Therefore, win ratio = {winRatioPercentage.ToString("0.0")}%";
+                    break;
+            }
         }
     }
 }

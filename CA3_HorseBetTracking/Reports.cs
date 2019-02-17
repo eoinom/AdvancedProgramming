@@ -162,5 +162,30 @@ namespace CA3_HorseBetTracking
                 return -1;
             }
         }
+
+        public static int GetTotalNumberOfBets(BindingList<HorseBet> bets)
+        {
+            return bets.Count;
+        }
+
+        public static int GetTotalNumberOfWins(BindingList<HorseBet> bets)
+        {
+            try
+            {
+                var betsWon =
+                    from bet in bets
+                    where bet.BetWon
+                    orderby bet.Amount
+                    select new
+                    {
+                        WinningBet = bet
+                    };
+                return betsWon.Select(b => b.WinningBet).Count();
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
     }
 }
