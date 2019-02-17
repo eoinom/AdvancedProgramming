@@ -110,5 +110,26 @@ namespace CA3_HorseBetTracking
                     break;
             }
         }
+
+        private void btnHighestWonAndLost_Click(object sender, EventArgs e)
+        {
+            switch (TipstersBets.Count)
+            {
+                case 0:
+                    rtbReports.Text = "Can't get highest amount won and lost as no bets have been entered";
+                    break;
+                default:
+                    string MostWon = Reports.GetHighestAmountWon(TipstersBets).ToString("0.00");
+                    string MostLost = Reports.GetHighestAmountLost(TipstersBets).ToString("0.00");
+                    rtbReports.Text = $"Highest amount won for a bet laid: €{MostWon}{Environment.NewLine}" +
+                                        $"Most amount lost for a bet laid: €{MostLost}";
+                    break;
+            }
+        }
+
+        private void btnHowSuccessful_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

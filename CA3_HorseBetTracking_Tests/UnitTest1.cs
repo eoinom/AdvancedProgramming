@@ -45,6 +45,20 @@ namespace CA3_HorseBetTracking_Tests
         }
 
         [TestMethod]
+        public void GetHighestAmountLostTest()
+        {
+            var result = Reports.GetHighestAmountLost(TestBets);            
+            Assert.AreEqual(25.00m, result);
+        }
+
+        [TestMethod]
+        public void GetHighestAmountWonTest()
+        {
+            var result = Reports.GetHighestAmountWon(TestBets);
+            Assert.AreEqual(122.52m, result);
+        }
+
+        [TestMethod]
         public void GetYearTotalsTest()
         {
             var result = Reports.GetYearTotals(TestBets);

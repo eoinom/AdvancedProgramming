@@ -107,20 +107,60 @@ namespace CA3_HorseBetTracking
             try
             {
                 var popularCourses =
-                from bet in bets
-                group bet by bet.RaceCourse into groupByRaceCourse
-                orderby groupByRaceCourse.Count()
-                select new
-                {
-                    NumberBets = groupByRaceCourse.Count(),
-                    Course = groupByRaceCourse.ElementAt(0).RaceCourse
-                };
+                    from bet in bets
+                    group bet by bet.RaceCourse into groupByRaceCourse
+                    orderby groupByRaceCourse.Count()
+                    select new
+                    {
+                        NumberBets = groupByRaceCourse.Count(),
+                        Course = groupByRaceCourse.ElementAt(0).RaceCourse
+                    };
                 return popularCourses.Select(c => c.Course).Last();
             }
             catch (Exception ex)
             {
                 return "Error! " + ex.Message;
             }            
+        }
+
+        public static decimal GetHighestAmountLost(BindingList<HorseBet> bets)
+        {
+            try
+            {
+                var betsLost =
+                    from bet in bets
+                    where !bet.BetWon
+                    orderby bet.Amount
+                    select new
+                    {
+                        AmountLost = bet.Amount
+                    };
+                return betsLost.Select(b => b.AmountLost).Last();
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+
+        public static decimal GetHighestAmountWon(BindingList<HorseBet> bets)
+        {
+            try
+            {
+                var betsWon =
+                    from bet in bets
+                    where bet.BetWon
+                    orderby bet.Amount
+                    select new
+                    {
+                        AmountWon = bet.Amount
+                    };
+                return betsWon.Select(b => b.AmountWon).Last();
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
         }
     }
 }
