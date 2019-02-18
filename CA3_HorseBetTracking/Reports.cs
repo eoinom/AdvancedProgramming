@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.ComponentModel;
 
 namespace CA3_HorseBetTracking
@@ -81,6 +78,10 @@ namespace CA3_HorseBetTracking
             }
             catch (Exception ex)
             {
+                if (ex.Message == "Sequence contains no elements")
+                {
+                    return 0;
+                }
                 return -1;
             }
         }
@@ -101,11 +102,15 @@ namespace CA3_HorseBetTracking
             }
             catch (Exception ex)
             {
+                if (ex.Message == "Sequence contains no elements")
+                {
+                    return 0;
+                }
                 return -1;
             }
         }
 
-        public static int GetTotalNumberOfBets(BindingList<HorseBet> bets)
+        public static int GetNumberOfBets(BindingList<HorseBet> bets)
         {
             return bets.Count;
         }
@@ -126,8 +131,15 @@ namespace CA3_HorseBetTracking
             }
             catch (Exception ex)
             {
-                return -1;
+                throw ex;
             }
+        }
+
+        public static double GetWinningPercentage(BindingList<HorseBet> bets)
+        {
+            int numOfBets = GetNumberOfBets(bets);
+            int numOfWins = GetTotalNumberOfWins(bets);
+            return 100.0 * numOfWins / numOfBets;
         }
     }
 }

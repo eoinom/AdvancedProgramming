@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -50,7 +44,16 @@ namespace CA3_HorseBetTracking
                 if (fileName != "")
                 {
                     string fileType = GetFileType( Path.GetExtension(fileName) );
-                    int numBetsExported = FileIO.ExportBets(fileName, ref TipstersBets);
+                    int numBetsExported = 0;
+
+                    if (fileType == "Binary")
+                    {
+                        numBetsExported = FileIO.ExportBetsToBinaryFile(fileName, ref TipstersBets);
+                    }
+                    else if (fileType == "CSV")
+                    {
+                        numBetsExported = FileIO.ExportBetsToCsvFile(fileName, ref TipstersBets);
+                    }
                     MessageBox.Show($"{fileType} file created and {numBetsExported} bets saved successfully.");
                 }
             }
@@ -73,7 +76,17 @@ namespace CA3_HorseBetTracking
                 if (fileName != "")
                 {
                     string fileType = GetFileType(Path.GetExtension(fileName));
-                    int numBetsImported = FileIO.ImportBets(fileName, ref TipstersBets);
+                    int numBetsImported = 0;
+
+                    if (fileType == "Binary")
+                    {
+                        numBetsImported = FileIO.ImportBetsFromBinaryFile(fileName, ref TipstersBets);
+                    }
+                    else if (fileType == "CSV")
+                    {
+                        numBetsImported = FileIO.ImportBetsFromCsvFile(fileName, ref TipstersBets);
+                    }
+                    
                     if (numBetsImported > 0)
                     {
                         MessageBox.Show($"{fileType} file opened and {numBetsImported} bets read successfully.");
@@ -139,9 +152,9 @@ namespace CA3_HorseBetTracking
                     rtbReports.Text = "Can't output report as no bets have been entered";
                     break;
                 default:
-                    int numOfBets = Reports.GetTotalNumberOfBets(TipstersBets);
+                    int numOfBets = Reports.GetNumberOfBets(TipstersBets);
                     int numOfWins = Reports.GetTotalNumberOfWins(TipstersBets);
-                    double winRatioPercentage = (100.0 * numOfWins / numOfBets);
+                    double winRatioPercentage = Reports.GetWinningPercentage(TipstersBets);
                     rtbReports.Text = $"Total number of bets laid: {numOfBets.ToString()}{Environment.NewLine}" +
                                         $"Total number of bets won: {numOfWins.ToString()}{Environment.NewLine}" +
                                         $"Therefore, win ratio = {winRatioPercentage.ToString("0.0")}%";
@@ -153,9 +166,9 @@ namespace CA3_HorseBetTracking
         {
             switch (fileExt)
             {
-                case "bin":
+                case ".bin":
                     return "Binary";
-                case "csv":
+                case ".csv":
                     return "CSV";
                 default:
                     return fileExt;

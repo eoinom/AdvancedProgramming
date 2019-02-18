@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CA3_HorseBetTracking;
 using System;
-using System.IO;
 using System.ComponentModel;
 
 namespace CA3_HorseBetTracking_Tests
@@ -61,7 +60,7 @@ namespace CA3_HorseBetTracking_Tests
         [TestMethod]
         public void GetTotalNumberOfBetsTest()
         {
-            var result = Reports.GetTotalNumberOfBets(TestBets);
+            var result = Reports.GetNumberOfBets(TestBets);
             Assert.AreEqual(6, result);
         }
 
@@ -70,6 +69,14 @@ namespace CA3_HorseBetTracking_Tests
         {
             var result = Reports.GetTotalNumberOfWins(TestBets);
             Assert.AreEqual(4, result);
+        }
+
+        [TestMethod]
+        public void GetWinningPercentageTest()
+        {
+            var result = Reports.GetWinningPercentage(TestBets);
+            var expectedResult = 100.0 * 4 / 6;
+            Assert.AreEqual(expectedResult, result);
         }
 
         [TestMethod]
@@ -87,7 +94,7 @@ namespace CA3_HorseBetTracking_Tests
         }
 
         [TestMethod]
-        public void ExportImportBetsTest()
+        public void ExportImportBinaryBetsTest()
         {
             // Output file to following directory: "[Project Path]\CA3_HorseBetTracking_Tests\TestFiles"
             string testOutFile = @"..\..\..\.\TestFiles\TestBetsOut.bin";
@@ -95,22 +102,51 @@ namespace CA3_HorseBetTracking_Tests
             BindingList<HorseBet> tempBets = TestBets;
 
             // check the number of bets exported
-            var numExported = FileIO.ExportBets(testOutFile, ref tempBets);
+            var numExported = FileIO.ExportBetsToBinaryFile(testOutFile, ref tempBets);
             Assert.AreEqual(6, numExported);
 
             // import the exported bets to see that they can be imported again successfully (therefore they're in the correct format)
-            var numImported = FileIO.ImportBets(testOutFile, ref tempBets);
+            var numImported = FileIO.ImportBetsFromBinaryFile(testOutFile, ref tempBets);
             Assert.AreEqual(6, numImported);
         }
 
         [TestMethod]
-        public void ImportBetsTest()
+        public void ExportImportCsvBetsTest()
+        {
+            // Output file to following directory: "[Project Path]\CA3_HorseBetTracking_Tests\TestFiles"
+            string testOutFile = @"..\..\..\.\TestFiles\TestBetsOut.csv";
+
+            BindingList<HorseBet> tempBets = TestBets;
+
+            // check the number of bets exported
+            var numExported = FileIO.ExportBetsToCsvFile(testOutFile, ref tempBets);
+            Assert.AreEqual(6, numExported);
+
+            // import the exported bets to see that they can be imported again successfully (therefore they're in the correct format)
+            var numImported = FileIO.ImportBetsFromCsvFile(testOutFile, ref tempBets);
+            Assert.AreEqual(6, numImported);
+        }
+
+        [TestMethod]
+        public void ImportBetsBinaryTest()
         {
             // Import file from following directory: "[Project Path]\CA3_HorseBetTracking_Tests\TestFiles"
             string testFile = @"..\..\..\.\TestFiles\TestBetsImport.bin";
 
             BindingList<HorseBet> tempBets = TestBets;
-            var result = FileIO.ImportBets(testFile, ref tempBets);
+            var result = FileIO.ImportBetsFromBinaryFile(testFile, ref tempBets);
+
+            Assert.AreEqual(36, result);
+        }
+
+        [TestMethod]
+        public void ImportBetsCsvTest()
+        {
+            // Import file from following directory: "[Project Path]\CA3_HorseBetTracking_Tests\TestFiles"
+            string testFile = @"..\..\..\.\TestFiles\TestBetsImport.csv";
+
+            BindingList<HorseBet> tempBets = TestBets;
+            var result = FileIO.ImportBetsFromCsvFile(testFile, ref tempBets);
 
             Assert.AreEqual(36, result);
         }
